@@ -67,6 +67,12 @@ namespace FestaInfantil.ModuloTema {
         public override void Excluir() {
             Tema tema = ObterTemaSelecionado();
 
+            if (tema == null)
+            {
+                MessageBox.Show("Nenhum Tema Selecionado!", "Excluir Temas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o tema {tema.nome} ?", "Exclusão de Temas",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
