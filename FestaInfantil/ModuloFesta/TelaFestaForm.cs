@@ -21,10 +21,14 @@ namespace FestaInfantil.ModuloFesta
                 cmbBoxTema.Items.Add(t);
             }
 
+            cmbBoxTema.SelectedItem = cmbBoxTema.Items[0];
+
             foreach (Cliente c in clientes.SelecionarTodos())
             {
                 cmbBoxCliente.Items.Add(c);
             }
+
+            cmbBoxCliente.SelectedItem = cmbBoxCliente.Items[0];
         }
 
         private void cmbBoxTema_SelectedValueChanged(object sender, EventArgs e)
@@ -36,13 +40,15 @@ namespace FestaInfantil.ModuloFesta
             foreach (ItemTema item in tema.itens)
             {
                 listaItens.Items.Add(item);
+                listaItens.SetItemChecked(listaItens.Items.Count - 1, true);
+                AtualizaValores();
             }
 
         }
 
         private decimal desconto = 1;
 
-        private void listaItens_SelectedValueChanged(object sender, EventArgs e)
+        private void AtualizaValores()
         {
             decimal valorTotal = 0;
             List<ItemTema> itensSelecionados = ObterItensMarcados();
@@ -58,6 +64,11 @@ namespace FestaInfantil.ModuloFesta
             decimal valorEntrada = valorTotal * (decimal)0.4;
 
             txtValorEntrada.Text = valorEntrada.ToString();
+        }
+
+        private void listaItens_SelectedValueChanged(object sender, EventArgs e)
+        {
+            AtualizaValores();
         }
 
         private bool VerificarCliente(Cliente cliente)
@@ -114,9 +125,9 @@ namespace FestaInfantil.ModuloFesta
 
             string[] erros = festa.Validar();
 
-            if (false/*erros.Length > 0*/)
+            if (erros.Length > 0)
             {
-                //TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
+                TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
 
                 DialogResult = DialogResult.None;
             }

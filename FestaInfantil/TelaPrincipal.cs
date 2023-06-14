@@ -26,6 +26,8 @@ namespace FestaInfantil
         public TelaPrincipal()
         {
             InitializeComponent();
+
+            telaPrincipal = this;
         }
         private void btnInserir_Click_1(object sender, EventArgs e)
         {
@@ -108,12 +110,12 @@ namespace FestaInfantil
 
         }
 
-        internal void AtualizarRodape(string mensagem)
+        public void AtualizarRodape(string mensagem)
         {
             lbRodape.Text = mensagem;
         }
 
-        
+
 
         public static TelaPrincipal Instancia
         {

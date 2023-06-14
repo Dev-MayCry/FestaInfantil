@@ -74,9 +74,12 @@ namespace FestaInfantil.Dominio.ModuloFesta
 
         public override string[] Validar()
         {
-            return new string[]{};
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(endereco))
+                erros.Add("O campo 'endereço' é obrigatório");
+
+            return erros.ToArray();
         }
-
-
     }
 }

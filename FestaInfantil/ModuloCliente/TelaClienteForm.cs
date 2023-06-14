@@ -48,12 +48,7 @@ namespace FestaInfantil.ModuloCliente
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        internal void ConfigurarTela(Cliente cliente)
+        public void ConfigurarTela(Cliente cliente)
         {
             txtId.Text = cliente.id.ToString();
             txtNome.Text = cliente.nome;
