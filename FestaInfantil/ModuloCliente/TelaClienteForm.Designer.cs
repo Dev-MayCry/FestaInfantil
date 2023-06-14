@@ -36,7 +36,7 @@
             btnConfirmar = new Button();
             lbTelefone = new Label();
             button1 = new Button();
-            button2 = new Button();
+            btnSalvar = new Button();
             txtTelefone = new TextBox();
             SuspendLayout();
             // 
@@ -116,17 +116,17 @@
             button1.Text = "Cancelar";
             button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSalvar
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.DialogResult = DialogResult.OK;
-            button2.Location = new Point(201, 67);
-            button2.Name = "button2";
-            button2.Size = new Size(93, 50);
-            button2.TabIndex = 36;
-            button2.Text = "Confirmar";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += btnConfirmar_Click;
+            btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSalvar.DialogResult = DialogResult.OK;
+            btnSalvar.Location = new Point(201, 67);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(93, 50);
+            btnSalvar.TabIndex = 36;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // txtTelefone
             // 
@@ -142,7 +142,7 @@
             ClientSize = new Size(412, 125);
             Controls.Add(txtTelefone);
             Controls.Add(button1);
-            Controls.Add(button2);
+            Controls.Add(btnSalvar);
             Controls.Add(lbTelefone);
             Controls.Add(labelTitulo);
             Controls.Add(txtNome);
@@ -167,7 +167,7 @@
         private Button btnConfirmar;
         private Label lbTelefone;
         private Button button1;
-        private Button button2;
+        private Button btnSalvar;
         private TextBox txtTelefone;
     }
 }

@@ -70,15 +70,21 @@ namespace FestaInfantil.ModuloCliente
 
         public override void Excluir()
         {
-            Cliente cliente = ObterClienteSelecionado();
+            Cliente clienteSelecionado = ObterClienteSelecionado();
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o Cliente {cliente.nome} ?", "Exclusão de Cliente",
+            if (clienteSelecionado == null)
+            {
+                MessageBox.Show("Nenhum Cliente Selecionado!", "Excluir Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o Cliente {clienteSelecionado.nome} ?", "Exclusão de Cliente",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
 
-                repositorioCliente.Excluir(cliente);
+                repositorioCliente.Excluir(clienteSelecionado);
                 CarregarCliente();
             }
         }

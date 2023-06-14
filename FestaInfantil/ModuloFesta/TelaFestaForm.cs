@@ -133,7 +133,8 @@ namespace FestaInfantil.ModuloFesta
             }
         }
 
-        internal void ConfigurarTela(Festa festa) {
+        internal void ConfigurarTela(Festa festa)
+        {
             txtId.Text = festa.id.ToString();
             cmbBoxTema.SelectedItem = festa.tema;
             cmbBoxCliente.SelectedItem = festa.cliente;
@@ -146,7 +147,8 @@ namespace FestaInfantil.ModuloFesta
 
             int i = 0;
 
-            for (int j = 0; j < listaItens.Items.Count; j++) {
+            for (int j = 0; j < listaItens.Items.Count; j++)
+            {
 
                 var item = (ItemTema)listaItens.Items[j];
                 if (festa.itensSelecionados.Contains(item))

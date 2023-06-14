@@ -34,7 +34,7 @@ namespace FestaInfantil.ModuloCliente
             return cliente;
         }
 
-        public void btnConfirmar_Click(object sender, EventArgs e)
+        public void btnSalvar_Click(object sender, EventArgs e)
         {
             Cliente cliente = ObterCliente();
 

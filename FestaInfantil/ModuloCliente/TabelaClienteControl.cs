@@ -23,7 +23,7 @@ namespace e_Agenda.WinApp.ModuloContato
                 new DataGridViewTextBoxColumn()
                 {
                     Name = "id",
-                    HeaderText = "Id"
+                    HeaderText = "ID"
                 },
                 new DataGridViewTextBoxColumn()
                 {

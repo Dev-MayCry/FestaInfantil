@@ -19,11 +19,19 @@
         }
 
         public override void AtualizarInformacoes(ItemTema registroAtualizado) {
-            throw new NotImplementedException();
+            
         }
 
         public override string[] Validar() {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(nome))
+                erros.Add("O campo 'descrição' é obrigatório");
+
+            if (valor == 0)
+                erros.Add("O campo 'valor' deve ser um número maior que zero");
+
+            return erros.ToArray();
         }
     }
 }

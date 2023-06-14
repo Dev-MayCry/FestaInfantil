@@ -35,7 +35,12 @@
         }
 
         public override string[] Validar() {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(nome))
+                erros.Add("O campo 'nome' é obrigatório");
+
+            return erros.ToArray();
         }
 
         public override string? ToString()
