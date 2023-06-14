@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FestaInfantil.Dominio.ModuloCliente
+﻿namespace FestaInfantil.Dominio.ModuloCliente
 {
     public interface IRepositorioCliente
     {
@@ -13,6 +7,5 @@ namespace FestaInfantil.Dominio.ModuloCliente
         void Excluir(Cliente clienteSelecionado);
         Cliente SelecionarPorId(int id);
         List<Cliente> SelecionarTodos();
-
     }
 }

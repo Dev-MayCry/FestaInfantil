@@ -1,5 +1,4 @@
-﻿using FestaInfantil.Compartilhado;
-using FestaInfantil.Dominio.ModuloTema;
+﻿using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloTema {
     public partial class TabelaTemaControl : UserControl {
@@ -29,10 +28,8 @@ namespace FestaInfantil.ModuloTema {
 
             grid.Rows.Clear();
 
-            foreach (Tema t in temas) {
+            foreach (Tema t in temas) 
                 grid.Rows.Add(t.id, t.nome);
-            }
-
         }
 
         public int ObterIdSelecionado() {
@@ -45,8 +42,6 @@ namespace FestaInfantil.ModuloTema {
             }
 
             return id;
-
         }
-
     }
 }

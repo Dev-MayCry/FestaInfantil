@@ -16,23 +16,11 @@ namespace FestaInfantil.InfraDados.Arquivo.Compartilhado
         public List<Festa> festas;
         public List<Cliente> clientes;
 
-        //public List<Compromisso> compromissos;
-
-        //public List<Tarefa> tarefas;
-
-        //public List<Categoria> categorias;
-
-        //public List<Despesa> despesas;
-
         public ContextoDados()
         {
             temas = new List<Tema>();
             festas = new List<Festa>();
             clientes = new List<Cliente>();
-            //compromissos = new List<Compromisso>();
-            //tarefas = new List<Tarefa>();
-            //categorias = new List<Categoria>();
-            //despesas = new List<Despesa>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -62,14 +50,10 @@ namespace FestaInfantil.InfraDados.Arquivo.Compartilhado
                 {
                     ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosJson, config);
 
-                    this.temas = ctx.temas;
-                    this.festas = ctx.festas;
+                    temas = ctx.temas;
+                    festas = ctx.festas;
 
-                    this.clientes = ctx.clientes;
-                    //this.compromissos = ctx.compromissos;
-                    //this.tarefas = ctx.tarefas;
-                    //this.categorias = ctx.categorias;
-                    //this.despesas = ctx.despesas;
+                    clientes = ctx.clientes;
                 }
             }
         }

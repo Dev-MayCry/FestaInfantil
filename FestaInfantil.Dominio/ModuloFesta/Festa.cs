@@ -18,7 +18,8 @@ namespace FestaInfantil.Dominio.ModuloFesta
         public List<ItemTema> itensSelecionados;
         public bool encerrado = false;
 
-        public void EncerrarFesta() {
+        public void EncerrarFesta() 
+        {
             encerrado = true;
             valorRestante = 0;
             cliente.antigo = true;

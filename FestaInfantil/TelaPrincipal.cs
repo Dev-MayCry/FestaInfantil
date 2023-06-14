@@ -1,4 +1,3 @@
-using FestaInfantil.Compartilhado;
 using FestaInfantil.Dominio.ModuloCliente;
 using FestaInfantil.Dominio.ModuloFesta;
 using FestaInfantil.Dominio.ModuloTema;
@@ -9,7 +8,6 @@ using FestaInfantil.InfraDados.Arquivo.ModuloTema;
 using FestaInfantil.ModuloCliente;
 using FestaInfantil.ModuloFesta;
 using FestaInfantil.ModuloTema;
-using System.Windows.Forms;
 
 namespace FestaInfantil
 {
@@ -106,16 +104,12 @@ namespace FestaInfantil
             btnAdicionarItensTema.Enabled = controlador.AdicionarItensTemaHabilitado;
             btnExcluirItensTema.Enabled = controlador.ExcluirItensTemaHabilitado;
             btnFecharAluguel.Enabled = controlador.FecharAluguelHabilitado;
-
-
         }
 
         public void AtualizarRodape(string mensagem)
         {
             lbRodape.Text = mensagem;
         }
-
-
 
         public static TelaPrincipal Instancia
         {
@@ -127,6 +121,5 @@ namespace FestaInfantil
                 return telaPrincipal;
             }
         }
-
     }
 }

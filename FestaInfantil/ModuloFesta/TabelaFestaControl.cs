@@ -1,5 +1,4 @@
 ﻿using FestaInfantil.Dominio.ModuloFesta;
-using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloFesta
 {
@@ -62,13 +61,8 @@ namespace FestaInfantil.ModuloFesta
             grid.Rows.Clear();
 
             foreach (Festa f in festas)
-            {
-                if (f.encerrado) 
-                    grid.Rows.Add(f.id, f.cliente, f.tema, f.data.ToShortDateString(), f.horaInicio.Hours + ":" + f.horaInicio.Minutes, f.endereco, f.valorTotal, f.valorRestante, "Encerrado");
-                else
-                    grid.Rows.Add(f.id, f.cliente, f.tema, f.data.ToShortDateString(), f.horaInicio.Hours + ":" + f.horaInicio.Minutes, f.endereco, f.valorTotal, f.valorRestante, "Em Aberto");
-
-            }
+                if (f.encerrado) grid.Rows.Add(f.id, f.cliente, f.tema, f.data.ToShortDateString(), f.horaInicio.Hours + ":" + f.horaInicio.Minutes, f.endereco, f.valorTotal, f.valorRestante, "Encerrado");
+                else grid.Rows.Add(f.id, f.cliente, f.tema, f.data.ToShortDateString(), f.horaInicio.Hours + ":" + f.horaInicio.Minutes, f.endereco, f.valorTotal, f.valorRestante, "Em Aberto");
         }
 
         public int ObterIdSelecionado()

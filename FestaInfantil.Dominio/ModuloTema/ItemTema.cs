@@ -10,17 +10,13 @@
             this.valor = valor;
         }
 
-        public ItemTema() {
-
-        }
+        public ItemTema() {}
 
         public override string ToString() {
             return nome + " - R$: " + valor;
         }
 
-        public override void AtualizarInformacoes(ItemTema registroAtualizado) {
-            
-        }
+        public override void AtualizarInformacoes(ItemTema registroAtualizado) {}
 
         public override string[] Validar() {
             List<string> erros = new List<string>();

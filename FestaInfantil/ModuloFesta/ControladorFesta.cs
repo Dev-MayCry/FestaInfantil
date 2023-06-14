@@ -1,8 +1,6 @@
 ﻿using FestaInfantil.Dominio.ModuloCliente;
 using FestaInfantil.Dominio.ModuloFesta;
 using FestaInfantil.Dominio.ModuloTema;
-using System.Collections.Generic;
-using System.Configuration;
 
 namespace FestaInfantil.ModuloFesta
 {
@@ -152,8 +150,8 @@ namespace FestaInfantil.ModuloFesta
             {
                 festa.EncerrarFesta();
             }
-                repositorioFesta.Editar(festa.id,festa);
-                CarregarFestas();
+            repositorioFesta.Editar(festa.id,festa);
+            CarregarFestas();
         }
     }
 }

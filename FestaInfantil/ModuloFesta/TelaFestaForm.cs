@@ -17,8 +17,6 @@ namespace FestaInfantil.ModuloFesta
             this.festas = festas;
         }
 
-
-
         private void CarregarInformacoes(IRepositorioTema temas, IRepositorioCliente clientes)
         {
             foreach (Tema t in temas.SelecionarTodos())
@@ -149,7 +147,6 @@ namespace FestaInfantil.ModuloFesta
                     TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
                 }
 
-
                 DialogResult = DialogResult.None;
             }
         }
@@ -177,7 +174,6 @@ namespace FestaInfantil.ModuloFesta
 
                 i++;
             }
-
         }
     }
 }

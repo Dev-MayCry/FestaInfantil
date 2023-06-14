@@ -1,5 +1,4 @@
-﻿
-using FestaInfantil.Dominio.ModuloCliente;
+﻿using FestaInfantil.Dominio.ModuloCliente;
 
 namespace e_Agenda.WinApp.ModuloContato
 {
@@ -14,7 +13,6 @@ namespace e_Agenda.WinApp.ModuloContato
 
             gridCliente.ConfigurarGridSomenteLeitura();
         }
-
 
         private void ConfigurarColunas()
         {

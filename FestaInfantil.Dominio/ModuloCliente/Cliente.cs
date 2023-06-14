@@ -2,7 +2,6 @@
 {
     public class Cliente : EntidadeBase<Cliente>
     {
-
         public string nome { get; set; }
         public string telefone;
         public bool antigo = false;
@@ -51,13 +50,7 @@
 
         public override bool Equals(object? obj)
         {
-            return obj is Cliente cliente &&
-                   id == cliente.id &&
-                   nome == cliente.nome &&
-                   telefone == cliente.telefone;
-
+            return obj is Cliente cliente && id == cliente.id && nome == cliente.nome && telefone == cliente.telefone;
         }
-
-
     }
 }

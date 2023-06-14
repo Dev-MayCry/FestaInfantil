@@ -1,7 +1,5 @@
-﻿
-namespace FestaInfantil.Compartilhado {
+﻿namespace FestaInfantil.Compartilhado {
     public static class GridExtension {
-
         public static void ConfigurarGridZebrado(this DataGridView grid) {
             Font font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
@@ -41,6 +39,5 @@ namespace FestaInfantil.Compartilhado {
 
             grid.AllowUserToResizeRows = false;
         }
-
     }
 }

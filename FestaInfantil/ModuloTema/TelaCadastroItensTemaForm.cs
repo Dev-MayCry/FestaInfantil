@@ -1,6 +1,4 @@
-﻿
-
-using FestaInfantil.Dominio.ModuloTema;
+﻿using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloTema
 {
@@ -11,7 +9,6 @@ namespace FestaInfantil.ModuloTema
             InitializeComponent();
 
             this.ConfigurarDialog();
-
 
             ConfigurarTela(tema);
         }
@@ -67,8 +64,6 @@ namespace FestaInfantil.ModuloTema
                 listItens.Items.RemoveAt(listItens.Items.Count - 1);
             }
         }
-
-        
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -1,6 +1,4 @@
-﻿
-
-using FestaInfantil.Dominio.ModuloTema;
+﻿using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloTema {
     public partial class TelaExclusaoItensTemaForm : Form {

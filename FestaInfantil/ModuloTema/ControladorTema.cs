@@ -1,14 +1,11 @@
-﻿using FestaInfantil.Compartilhado;
-using FestaInfantil.Dominio.ModuloTema;
+﻿using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloTema {
     public class ControladorTema : ControladorBase {
 
-
         private IRepositorioTema repositorioTema;
         private TabelaTemaControl tabelaTemas;
-
-
+        
         public ControladorTema(IRepositorioTema repositorioTema) {
             this.repositorioTema = repositorioTema;
         }
@@ -33,7 +30,6 @@ namespace FestaInfantil.ModuloTema {
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK) {
-
                 Tema novoTema = telaTema.ObterTema();
                 repositorioTema.Inserir(novoTema);
                 CarregarTemas();
@@ -100,11 +96,8 @@ namespace FestaInfantil.ModuloTema {
                 List<ItemTema> itensParaAdicionar = telaCadastroItensTemaForm.ObterItensCadastrados();
                 temaSelecionado.LimparListaItens();
 
-                foreach (ItemTema item in itensParaAdicionar) {
-
+                foreach (ItemTema item in itensParaAdicionar)
                     temaSelecionado.AdicionarItem(item);
-
-                }
 
                 repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
 
@@ -127,19 +120,17 @@ namespace FestaInfantil.ModuloTema {
                 MessageBox.Show("O Tema selecionado não possui nenhum item cadastrado!", "Exclusão de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             } 
-                else 
-                {
+            else 
+            {
                 DialogResult opcao = telaExclusao.ShowDialog();
 
-                if (opcao == DialogResult.OK) {
+                if (opcao == DialogResult.OK) 
+                {
 
                     List<ItemTema> itensMarcados = telaExclusao.ObterItensMarcados();
 
-                    foreach (ItemTema item in itensMarcados) {
-
+                    foreach (ItemTema item in itensMarcados) 
                         temaSelecionado.RemoverItem(item);
-
-                    }
 
                     repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
 
@@ -148,12 +139,10 @@ namespace FestaInfantil.ModuloTema {
             }
         }
 
-
         private Tema ObterTemaSelecionado() {
             int id = tabelaTemas.ObterIdSelecionado();
             return repositorioTema.SelecionarPorId(id);
         }
-
 
         public override UserControl ObterListagem() {
             if (tabelaTemas == null) {
@@ -165,7 +154,6 @@ namespace FestaInfantil.ModuloTema {
             return tabelaTemas;
         }
 
-       
         private void CarregarTemas() {
             List<Tema> temas = repositorioTema.SelecionarTodos();
             tabelaTemas.AtualizarRegistros(temas);

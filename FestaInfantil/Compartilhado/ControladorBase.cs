@@ -50,8 +50,5 @@
         }
 
         public abstract UserControl ObterListagem();
-
-        
-
     }
 }

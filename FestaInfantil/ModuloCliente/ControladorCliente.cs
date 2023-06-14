@@ -1,12 +1,5 @@
 ﻿using e_Agenda.WinApp.ModuloContato;
 using FestaInfantil.Dominio.ModuloCliente;
-using FestaInfantil.Dominio.ModuloTema;
-using FestaInfantil.ModuloTema;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FestaInfantil.ModuloCliente
 {
@@ -35,7 +28,6 @@ namespace FestaInfantil.ModuloCliente
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-
                 Cliente novoCliente = telaCliente.ObterCliente();
                 repositorioCliente.Inserir(novoCliente);
                 CarregarCliente();
@@ -59,7 +51,6 @@ namespace FestaInfantil.ModuloCliente
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-
                 Cliente cliente = telaCliente.ObterCliente();
 
                 repositorioCliente.Editar(cliente.id, cliente);
@@ -78,12 +69,10 @@ namespace FestaInfantil.ModuloCliente
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o Cliente {clienteSelecionado.nome} ?", "Exclusão de Cliente",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o Cliente {clienteSelecionado.nome} ?", "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-
                 repositorioCliente.Excluir(clienteSelecionado);
                 CarregarCliente();
             }
@@ -94,7 +83,6 @@ namespace FestaInfantil.ModuloCliente
             int id = tabelaCliente.ObterIdSelecionado();
             return repositorioCliente.SelecionarPorId(id);
         }
-
 
         public override UserControl ObterListagem()
         {

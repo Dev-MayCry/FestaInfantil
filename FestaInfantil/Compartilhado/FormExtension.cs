@@ -1,5 +1,4 @@
-﻿
-namespace FestaInfantil.Compartilhado {
+﻿namespace FestaInfantil.Compartilhado {
     public static class FormExtension {
         public static void ConfigurarDialog(this Form form) {
             form.ShowIcon = false;
@@ -9,6 +8,5 @@ namespace FestaInfantil.Compartilhado {
             form.MaximizeBox = false;
             form.MinimizeBox = false;
         }
-
     }
 }

@@ -1,14 +1,4 @@
 ﻿using FestaInfantil.Dominio.ModuloCliente;
-using FestaInfantil.Dominio.ModuloTema;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FestaInfantil.ModuloCliente
 {
@@ -48,7 +38,7 @@ namespace FestaInfantil.ModuloCliente
             }
         }
 
-        public void ConfigurarTela(Cliente cliente)
+        internal void ConfigurarTela(Cliente cliente)
         {
             txtId.Text = cliente.id.ToString();
             txtNome.Text = cliente.nome;
