@@ -74,21 +74,21 @@
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Size = new Size(116, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // temasToolStripMenuItem
             // 
             temasToolStripMenuItem.Name = "temasToolStripMenuItem";
-            temasToolStripMenuItem.Size = new Size(180, 22);
+            temasToolStripMenuItem.Size = new Size(116, 22);
             temasToolStripMenuItem.Text = "Temas";
             temasToolStripMenuItem.Click += temasToolStripMenuItem_Click;
             // 
             // festaToolStripMenuItem
             // 
             festaToolStripMenuItem.Name = "festaToolStripMenuItem";
-            festaToolStripMenuItem.Size = new Size(180, 22);
+            festaToolStripMenuItem.Size = new Size(116, 22);
             festaToolStripMenuItem.Text = "Festa";
             festaToolStripMenuItem.Click += festaToolStripMenuItem_Click;
             // 
@@ -227,12 +227,14 @@
             Controls.Add(panelRegistros);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             MaximumSize = new Size(1280, 720);
+            MinimizeBox = false;
             MinimumSize = new Size(640, 480);
             Name = "TelaPrincipal";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Infantil";
+            Text = "Rafaela Festas";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);

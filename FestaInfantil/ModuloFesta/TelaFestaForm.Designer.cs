@@ -155,6 +155,7 @@
             txtData.Name = "txtData";
             txtData.Size = new Size(116, 23);
             txtData.TabIndex = 11;
+            txtData.Value = new DateTime(2023, 6, 14, 17, 21, 35, 0);
             // 
             // txtHoraInicio
             // 

@@ -19,9 +19,11 @@ namespace FestaInfantil.ModuloFesta
 
         private void CarregarInformacoes(IRepositorioTema temas, IRepositorioCliente clientes)
         {
+            txtData.MinDate = DateTime.Now.AddDays(1);
+
             foreach (Tema t in temas.SelecionarTodos())
             {
-                if(t.itens.Count > 0)
+                if (t.itens.Count > 0)
                     cmbBoxTema.Items.Add(t);
             }
 
