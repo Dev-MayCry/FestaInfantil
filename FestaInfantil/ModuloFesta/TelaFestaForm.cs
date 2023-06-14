@@ -127,9 +127,8 @@ namespace FestaInfantil.ModuloFesta
 
         public bool VerificarTemaDisponivelNaData(Festa festa)
         {
-
             List<Festa> listaFestas = festas.SelecionarTodos();
-            return listaFestas.Any(f => f.tema == festa.tema && f.data.DayOfYear == festa.data.DayOfYear);
+            return listaFestas.Any(f => f.tema == festa.tema && f.data.DayOfYear == festa.data.DayOfYear && f.id != festa.id);
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -159,6 +158,7 @@ namespace FestaInfantil.ModuloFesta
             cmbBoxTema.SelectedItem = festa.tema;
             cmbBoxCliente.SelectedItem = festa.cliente;
             txtEndereco.Text = festa.endereco;
+            txtData.MinDate = festa.data;
             txtData.Value = festa.data;
             txtHoraInicio.Value = DateTime.Now.Date.Add(festa.horaInicio);
             txtHoraFim.Value = DateTime.Now.Date.Add(festa.horaFim);
@@ -169,7 +169,6 @@ namespace FestaInfantil.ModuloFesta
 
             for (int j = 0; j < listaItens.Items.Count; j++)
             {
-
                 var item = (ItemTema)listaItens.Items[j];
                 if (festa.itensSelecionados.Contains(item))
                     listaItens.SetItemChecked(i, true);

@@ -51,6 +51,7 @@ namespace FestaInfantil.ModuloFesta
                 MessageBox.Show("Nenhuma Festa Selecionada!", "Editar Festas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
             TelaFestaForm telaFesta = new TelaFestaForm(repositorioTema, repositorioCliente, repositorioFesta);
 
             telaFesta.ConfigurarTela(festaSelecionada);
