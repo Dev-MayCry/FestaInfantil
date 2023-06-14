@@ -29,10 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloAluguel\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FestaInfantil.Dominio\FestaInfantil.Dominio.csproj" />
     <ProjectReference Include="..\FestaInfantil.InfraDados.Arquivo\FestaInfantil.InfraDados.Arquivo.csproj" />
   </ItemGroup>
