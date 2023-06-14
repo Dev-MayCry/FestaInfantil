@@ -32,7 +32,9 @@ namespace FestaInfantil.ModuloFesta
 
         public override void Inserir()
         {
-            TelaFestaForm telaFesta = new TelaFestaForm(repositorioTema, repositorioCliente);
+            if (VerificarClienteTema()) return;
+            
+            TelaFestaForm telaFesta = new TelaFestaForm(repositorioTema, repositorioCliente, repositorioFesta);
             DialogResult opcaoEscolhida = telaFesta.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -51,7 +53,7 @@ namespace FestaInfantil.ModuloFesta
                 MessageBox.Show("Nenhuma Festa Selecionada!", "Editar Festas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            TelaFestaForm telaFesta = new TelaFestaForm(repositorioTema, repositorioCliente);
+            TelaFestaForm telaFesta = new TelaFestaForm(repositorioTema, repositorioCliente, repositorioFesta);
 
             telaFesta.ConfigurarTela(festaSelecionada);
 
@@ -83,6 +85,21 @@ namespace FestaInfantil.ModuloFesta
                 repositorioFesta.Excluir(festaSelecionada);
                 CarregarFestas();
             }
+        }
+
+        private bool VerificarClienteTema()
+        {
+            if (repositorioTema.SelecionarTodos().Count() == 0)
+            {
+                MessageBox.Show($"Nenhum tema cadastrado", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            if (repositorioCliente.SelecionarTodos().Count() == 0)
+            {
+                MessageBox.Show($"Nenhum cliente cadastrado", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            return false;
         }
 
         private Festa ObterFestaSelecionada()

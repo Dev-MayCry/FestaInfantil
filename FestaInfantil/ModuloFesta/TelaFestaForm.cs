@@ -6,13 +6,18 @@ namespace FestaInfantil.ModuloFesta
 {
     public partial class TelaFestaForm : Form
     {
-        public TelaFestaForm(IRepositorioTema temas, IRepositorioCliente clientes)
+        private IRepositorioFesta festas;
+
+        public TelaFestaForm(IRepositorioTema temas, IRepositorioCliente clientes, IRepositorioFesta festas)
         {
             InitializeComponent();
 
             CarregarInformacoes(temas, clientes);
 
+            this.festas = festas;
         }
+
+
 
         private void CarregarInformacoes(IRepositorioTema temas, IRepositorioCliente clientes)
         {
@@ -119,15 +124,30 @@ namespace FestaInfantil.ModuloFesta
             return listaItens.CheckedItems.Cast<ItemTema>().ToList();
         }
 
+        public bool VerificarTemaDisponivelNaData(Festa festa)
+        {
+
+            List<Festa> listaFestas = festas.SelecionarTodos();
+            return listaFestas.Any(f => f.tema == festa.tema && f.data.DayOfYear == festa.data.DayOfYear);
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Festa festa = ObterFesta();
 
             string[] erros = festa.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Length > 0 || VerificarTemaDisponivelNaData(festa))
             {
-                TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
+                if (VerificarTemaDisponivelNaData(festa))
+                {
+                    MessageBox.Show($"O tema {festa.tema} já está reservado na data selecionada. ", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
+                }
+
 
                 DialogResult = DialogResult.None;
             }
