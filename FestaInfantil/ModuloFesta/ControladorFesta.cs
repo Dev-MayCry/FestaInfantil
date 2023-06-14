@@ -65,8 +65,6 @@ namespace FestaInfantil.ModuloFesta
                 repositorioFesta.Editar(festa.id, festa);
                 CarregarFestas();
             }
-
-
         }
 
         public override void Excluir()
@@ -99,6 +97,19 @@ namespace FestaInfantil.ModuloFesta
                 MessageBox.Show($"Nenhum cliente cadastrado", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return true;
             }
+
+            bool hasItem = false;
+
+            foreach (Tema t in repositorioTema.SelecionarTodos())
+            {
+                if (t.itens.Count() > 0) hasItem = true;
+            }
+            if (hasItem == false)
+            {
+                MessageBox.Show($"Nenhum tema possui itens cadastrados", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+
             return false;
         }
 

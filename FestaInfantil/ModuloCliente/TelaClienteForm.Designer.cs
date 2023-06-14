@@ -134,6 +134,7 @@
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(312, 23);
             txtTelefone.TabIndex = 38;
+            txtTelefone.KeyPress += txtTelefone_KeyPress;
             // 
             // TelaClienteForm
             // 

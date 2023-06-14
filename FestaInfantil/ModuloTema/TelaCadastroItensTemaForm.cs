@@ -66,27 +66,6 @@ namespace FestaInfantil.ModuloTema
 
                 listItens.Items.RemoveAt(listItens.Items.Count - 1);
             }
-
-
-            //if (txtDescricao.Text != "" && txtValor.Text != "")
-            //{
-
-            //    string nome = txtDescricao.Text;
-            //    decimal valor = Convert.ToDecimal(txtValor.Text);
-
-            //    ItemTema itemTema = new ItemTema(nome, valor);
-
-            //    listItens.Items.Add(itemTema);
-
-            //    txtDescricao.Text = "";
-            //    txtValor.Text = "";
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("A descrição do item não pode ficar vazia.", "Inclusão de itens", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
         }
 
         

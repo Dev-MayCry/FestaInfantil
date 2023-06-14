@@ -23,7 +23,8 @@ namespace FestaInfantil.ModuloFesta
         {
             foreach (Tema t in temas.SelecionarTodos())
             {
-                cmbBoxTema.Items.Add(t);
+                if(t.itens.Count > 0)
+                    cmbBoxTema.Items.Add(t);
             }
 
             cmbBoxTema.SelectedItem = cmbBoxTema.Items[0];

@@ -54,5 +54,13 @@ namespace FestaInfantil.ModuloCliente
             txtNome.Text = cliente.nome;
             txtTelefone.Text = cliente.telefone;
         }
+
+        private void txtTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
