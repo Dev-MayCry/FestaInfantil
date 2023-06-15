@@ -1,14 +1,20 @@
 ﻿using FestaInfantil.Dominio.ModuloCliente;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FestaInfantil.ModuloCliente
 {
     public partial class TelaClienteForm : Form
     {
-        public TelaClienteForm()
+        private IRepositorioCliente clientes;
+        public TelaClienteForm(IRepositorioCliente clientes)
         {
             InitializeComponent();
+
             this.ConfigurarDialog();
+            this.clientes = clientes;
         }
+
 
         public Cliente ObterCliente()
         {
@@ -16,13 +22,21 @@ namespace FestaInfantil.ModuloCliente
             string nome = txtNome.Text;
 
             string telefone = txtTelefone.Text;
+
             Cliente cliente = new Cliente(nome, telefone);
 
             if (id > 0)
                 cliente.id = id;
 
             return cliente;
+
         }
+        private bool VerificarDisponibilidadeCliente(Cliente cliente)
+        {
+            List<Cliente> listaCliente = clientes.SelecionarTodos();
+            return listaCliente.Any(c => c.nome == cliente.nome);
+        }
+
 
         public void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -30,12 +44,19 @@ namespace FestaInfantil.ModuloCliente
 
             string[] erros = cliente.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Length > 0 || VerificarDisponibilidadeCliente(cliente))
             {
-                TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
-
+                if (VerificarDisponibilidadeCliente(cliente))
+                {
+                    MessageBox.Show($"O Cliente {cliente.nome} ja esta cadastrado.", "Novo cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    TelaPrincipal.Instancia.AtualizarRodape(erros[0]);
+                }
                 DialogResult = DialogResult.None;
             }
+
         }
 
         internal void ConfigurarTela(Cliente cliente)
@@ -52,5 +73,7 @@ namespace FestaInfantil.ModuloCliente
                 e.Handled = true;
             }
         }
+
+
     }
 }

@@ -8,6 +8,7 @@ namespace FestaInfantil.ModuloCliente
 
         private IRepositorioCliente repositorioCliente;
         private TabelaClienteControl tabelaCliente;
+        
         public ControladorCliente(IRepositorioCliente repositorioCliente)
         {
             this.repositorioCliente = repositorioCliente;
@@ -23,7 +24,7 @@ namespace FestaInfantil.ModuloCliente
 
         public override void Inserir()
         {
-            TelaClienteForm telaCliente = new TelaClienteForm();
+            TelaClienteForm telaCliente = new TelaClienteForm(repositorioCliente);
             DialogResult opcaoEscolhida = telaCliente.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -44,7 +45,7 @@ namespace FestaInfantil.ModuloCliente
                 return;
             }
 
-            TelaClienteForm telaCliente = new TelaClienteForm();
+            TelaClienteForm telaCliente = new TelaClienteForm(repositorioCliente);
             telaCliente.ConfigurarTela(clienteSelecionado);
 
             DialogResult opcaoEscolhida = telaCliente.ShowDialog();

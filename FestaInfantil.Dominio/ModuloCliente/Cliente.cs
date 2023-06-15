@@ -41,8 +41,8 @@
 
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
-
-            if (string.IsNullOrEmpty(telefone))
+            string txttelefone = telefone.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ","");
+            if (string.IsNullOrEmpty(txttelefone)&& txttelefone.Count()!=11)
                 erros.Add("O campo 'telefone' é obrigatório");
 
             return erros.ToArray();
