@@ -169,8 +169,9 @@
             Controls.Add(labelTitulo);
             Controls.Add(txtTitulo);
             Name = "TelaCadastroItensTemaForm";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TelaCadastroItensTemaForm";
+            Text = "Cadastrar Temas";
             ResumeLayout(false);
             PerformLayout();
         }

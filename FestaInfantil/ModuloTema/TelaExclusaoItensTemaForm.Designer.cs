@@ -1,5 +1,7 @@
-﻿namespace FestaInfantil.ModuloTema {
-    partial class TelaExclusaoItensTemaForm {
+﻿namespace FestaInfantil.ModuloTema
+{
+    partial class TelaExclusaoItensTemaForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -9,8 +11,10 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -22,110 +26,110 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.listItensTema = new System.Windows.Forms.CheckedListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+        private void InitializeComponent()
+        {
+            label6 = new Label();
+            txtId = new TextBox();
+            btnCancelar = new Button();
+            btnConfirmar = new Button();
+            labelTitulo = new Label();
+            txtTitulo = new TextBox();
+            listItensTema = new CheckedListBox();
+            label1 = new Label();
+            SuspendLayout();
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(449, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(24, 15);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "ID: ";
+            label6.AutoSize = true;
+            label6.Location = new Point(449, 17);
+            label6.Name = "label6";
+            label6.Size = new Size(24, 15);
+            label6.TabIndex = 45;
+            label6.Text = "ID: ";
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(479, 14);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(29, 23);
-            this.txtId.TabIndex = 44;
-            this.txtId.Text = "0";
+            txtId.Location = new Point(479, 14);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(29, 23);
+            txtId.TabIndex = 44;
+            txtId.Text = "0";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(422, 391);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(93, 50);
-            this.btnCancelar.TabIndex = 43;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(422, 391);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(93, 50);
+            btnCancelar.TabIndex = 43;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfirmar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConfirmar.Location = new System.Drawing.Point(323, 391);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(93, 50);
-            this.btnConfirmar.TabIndex = 42;
-            this.btnConfirmar.Text = "Excluir";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnConfirmar.DialogResult = DialogResult.OK;
+            btnConfirmar.Location = new Point(323, 391);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(93, 50);
+            btnConfirmar.TabIndex = 42;
+            btnConfirmar.Text = "Excluir";
+            btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // labelTitulo
             // 
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Location = new System.Drawing.Point(23, 17);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(38, 15);
-            this.labelTitulo.TabIndex = 41;
-            this.labelTitulo.Text = "Tema:";
+            labelTitulo.AutoSize = true;
+            labelTitulo.Location = new Point(23, 17);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new Size(38, 15);
+            labelTitulo.TabIndex = 41;
+            labelTitulo.Text = "Tema:";
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(93, 14);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.ReadOnly = true;
-            this.txtTitulo.Size = new System.Drawing.Size(321, 23);
-            this.txtTitulo.TabIndex = 40;
+            txtTitulo.Location = new Point(93, 14);
+            txtTitulo.Name = "txtTitulo";
+            txtTitulo.ReadOnly = true;
+            txtTitulo.Size = new Size(321, 23);
+            txtTitulo.TabIndex = 40;
             // 
             // listItensTema
             // 
-            this.listItensTema.FormattingEnabled = true;
-            this.listItensTema.Location = new System.Drawing.Point(23, 87);
-            this.listItensTema.Name = "listItensTema";
-            this.listItensTema.Size = new System.Drawing.Size(485, 274);
-            this.listItensTema.TabIndex = 47;
+            listItensTema.FormattingEnabled = true;
+            listItensTema.Location = new Point(23, 87);
+            listItensTema.Name = "listItensTema";
+            listItensTema.Size = new Size(485, 274);
+            listItensTema.TabIndex = 47;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(169, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 15);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Selecione os Itens a serem excluídos:";
+            label1.AutoSize = true;
+            label1.Location = new Point(169, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(200, 15);
+            label1.TabIndex = 48;
+            label1.Text = "Selecione os Itens a serem excluídos:";
             // 
             // TelaExclusaoItensTemaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 453);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listItensTema);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.labelTitulo);
-            this.Controls.Add(this.txtTitulo);
-            this.Name = "TelaExclusaoItensTemaForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaExclusaoItensTemaForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(527, 453);
+            Controls.Add(label1);
+            Controls.Add(listItensTema);
+            Controls.Add(label6);
+            Controls.Add(txtId);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnConfirmar);
+            Controls.Add(labelTitulo);
+            Controls.Add(txtTitulo);
+            Name = "TelaExclusaoItensTemaForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Excluir Temas";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

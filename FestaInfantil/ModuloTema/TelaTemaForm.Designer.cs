@@ -105,8 +105,9 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnSalvar);
             Name = "TelaTemaForm";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TelaTemaForm";
+            Text = "Cadastrar Tema";
             ResumeLayout(false);
             PerformLayout();
         }

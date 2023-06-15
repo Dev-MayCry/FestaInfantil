@@ -37,7 +37,7 @@ namespace FestaInfantil.ModuloTema
 
             decimal valor;
             if (txtValor.Text == "")
-                 valor = 0;
+                valor = 0;
             else
                 valor = Convert.ToDecimal(txtValor.Text);
 

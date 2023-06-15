@@ -152,8 +152,9 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnConfirmar);
             Name = "TelaClienteForm";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TelaClienteForm";
+            Text = "Cadastrar Clientes";
             ResumeLayout(false);
             PerformLayout();
         }
