@@ -45,7 +45,7 @@
         {
         }
 
-        public virtual void FecharAluguel()
+        public virtual void EncerrarAluguel()
         {
         }
 

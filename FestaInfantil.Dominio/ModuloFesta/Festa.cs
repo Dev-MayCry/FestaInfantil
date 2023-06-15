@@ -12,22 +12,15 @@ namespace FestaInfantil.Dominio.ModuloFesta
         public TimeSpan horaInicio;
         public TimeSpan horaFim;
         public string endereco;
-        public decimal valorTotal;
-        public decimal valorEntrada;
-        public decimal valorRestante;
+        public double valorTotal;
+        public double valorEntrada;
+        public double valorRestante;
         public List<ItemTema> itensSelecionados;
         public bool encerrado = false;
 
-        public void EncerrarFesta() 
-        {
-            encerrado = true;
-            valorRestante = 0;
-            cliente.antigo = true;
-        }
-
         public Festa() { }
 
-        public Festa(Cliente cliente, Tema tema, DateTime data, TimeSpan horaInicio, TimeSpan horaFim, string endereco, decimal valorTotal, decimal valorEntrada, List<ItemTema> itensSelecionados, bool encerrado)
+        public Festa(Cliente cliente, Tema tema, DateTime data, TimeSpan horaInicio, TimeSpan horaFim, string endereco, double valorTotal, double valorEntrada, List<ItemTema> itensSelecionados, bool encerrado)
         {
             this.cliente = cliente;
             this.tema = tema;
@@ -42,7 +35,7 @@ namespace FestaInfantil.Dominio.ModuloFesta
             this.encerrado = encerrado;
         }
 
-        public Festa(int id, Cliente cliente, Tema tema, DateTime data, TimeSpan horaInicio, TimeSpan horaFim, string endereco, decimal valorTotal, decimal valorEntrada, List<ItemTema> itensSelecionados, bool encerrado)
+        public Festa(int id, Cliente cliente, Tema tema, DateTime data, TimeSpan horaInicio, TimeSpan horaFim, string endereco, double valorTotal, double valorEntrada, List<ItemTema> itensSelecionados, bool encerrado)
         {
             this.id = id;
             this.cliente = cliente;
@@ -71,6 +64,13 @@ namespace FestaInfantil.Dominio.ModuloFesta
             itensSelecionados = registroAtualizado.itensSelecionados;
             valorRestante = registroAtualizado.valorRestante;
             encerrado = registroAtualizado.encerrado;
+        }
+
+        public void EncerrarFesta()
+        {
+            encerrado = true;
+            valorRestante = 0;
+            data = DateTime.Today;
         }
 
         public override string[] Validar()

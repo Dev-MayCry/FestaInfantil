@@ -52,7 +52,7 @@ namespace FestaInfantil
 
         private void btnFecharAluguel_Click(object sender, EventArgs e)
         {
-            controlador.FecharAluguel();
+            controlador.EncerrarAluguel();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ namespace FestaInfantil.ModuloFesta
     public partial class TelaFestaForm : Form
     {
         private IRepositorioFesta festas;
+        private IRepositorioCliente clientes;
 
         public TelaFestaForm(IRepositorioTema temas, IRepositorioCliente clientes, IRepositorioFesta festas)
         {
@@ -15,6 +16,7 @@ namespace FestaInfantil.ModuloFesta
             CarregarInformacoes(temas, clientes);
 
             this.festas = festas;
+            this.clientes = clientes;
         }
 
         private void CarregarInformacoes(IRepositorioTema temas, IRepositorioCliente clientes)
@@ -52,22 +54,22 @@ namespace FestaInfantil.ModuloFesta
 
         }
 
-        private decimal desconto = 1;
+        private double desconto = 1;
 
         private void AtualizaValores()
         {
-            decimal valorTotal = 0;
+            double valorTotal = 0;
             List<ItemTema> itensSelecionados = ObterItensMarcados();
             foreach (ItemTema item in itensSelecionados)
             {
-                valorTotal += item.valor;
+                valorTotal += (double)item.valor;
             }
 
             valorTotal *= desconto;
 
             txtValorTotal.Text = valorTotal.ToString();
 
-            decimal valorEntrada = valorTotal * (decimal)0.4;
+            double valorEntrada = valorTotal * 0.4;
 
             txtValorEntrada.Text = valorEntrada.ToString();
         }
@@ -77,21 +79,26 @@ namespace FestaInfantil.ModuloFesta
             AtualizaValores();
         }
 
-        private bool VerificarCliente(Cliente cliente)
+        private void CalculaDesconto(Cliente cliente)
         {
-            if (cliente.antigo)
-                return true;
-            return false;
+            int tetoDesconto = 5;
+
+            if(clientes.SelecionarTodos().Any(c => c.nome == cliente.nome))
+            {
+                int contadorCliente = 0;
+                foreach (Cliente c in clientes.SelecionarTodos())
+                    if(c.nome == cliente.nome) contadorCliente++;
+                
+                if (contadorCliente * 2 > 5) desconto = 0.95;
+                else desconto =  1 - (contadorCliente * 2 / 100);
+            }
         }
 
         private void cmbBoxCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente cliente = cmbBoxCliente.SelectedItem as Cliente;
 
-            if (VerificarCliente(cliente))
-            {
-                desconto = (decimal)0.9;
-            }
+            CalculaDesconto(cliente);
 
         }
 
@@ -108,8 +115,8 @@ namespace FestaInfantil.ModuloFesta
             TimeSpan horaInicio = txtHoraInicio.Value.TimeOfDay;
             TimeSpan horaFim = txtHoraFim.Value.TimeOfDay;
 
-            decimal valorTotal = Convert.ToDecimal(txtValorTotal.Text);
-            decimal valorEntrada = Convert.ToDecimal(txtValorEntrada.Text);
+            double valorTotal = Convert.ToDouble(txtValorTotal.Text);
+            double valorEntrada = Convert.ToDouble(txtValorEntrada.Text);
 
             List<ItemTema> itensSelecionados = ObterItensMarcados();
 
@@ -154,7 +161,8 @@ namespace FestaInfantil.ModuloFesta
 
         internal void ConfigurarTela(Festa festa)
         {
-            if (festa.data < DateTime.Today) {
+            if (festa.data < DateTime.Today)
+            {
                 txtData.MinDate = festa.data;
             }
 
