@@ -154,11 +154,14 @@ namespace FestaInfantil.ModuloFesta
 
         internal void ConfigurarTela(Festa festa)
         {
+            if (festa.data < DateTime.Today) {
+                txtData.MinDate = festa.data;
+            }
+
             txtId.Text = festa.id.ToString();
             cmbBoxTema.SelectedItem = festa.tema;
             cmbBoxCliente.SelectedItem = festa.cliente;
             txtEndereco.Text = festa.endereco;
-            txtData.MinDate = festa.data;
             txtData.Value = festa.data;
             txtHoraInicio.Value = DateTime.Now.Date.Add(festa.horaInicio);
             txtHoraFim.Value = DateTime.Now.Date.Add(festa.horaFim);

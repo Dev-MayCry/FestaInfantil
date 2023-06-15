@@ -75,7 +75,7 @@ namespace FestaInfantil.ModuloFesta
                 return;
             }
 
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o festa {festaSelecionada.tema} ?", "Exclusão de Festas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir a festa {festaSelecionada.tema} ?", "Exclusão de Festas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
             {
