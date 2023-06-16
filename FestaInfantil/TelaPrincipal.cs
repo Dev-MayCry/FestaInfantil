@@ -45,6 +45,9 @@ namespace FestaInfantil
         {
             controlador.AdicionarItensTema();
         }
+        private void btnVisualizarItens_Click(object sender, EventArgs e) {
+            controlador.VisualizarItensTema();
+        }
         private void btnExcluirItensTema_Click(object sender, EventArgs e)
         {
             controlador.ExcluirItensTema();
@@ -52,25 +55,28 @@ namespace FestaInfantil
 
         private void btnFecharAluguel_Click(object sender, EventArgs e)
         {
-            controlador.FecharAluguel();
+            controlador.EncerrarAluguel();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorCliente(repositorioCliente);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Clientes");
         }
 
         private void temasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTema(repositorioTema);
+            controlador = new ControladorTema(repositorioTema,repositorioFesta);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Temas");
         }
 
         private void festaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorFesta(repositorioFesta, repositorioTema, repositorioCliente);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Festas");
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
@@ -97,12 +103,14 @@ namespace FestaInfantil
             btnAdicionarItensTema.ToolTipText = controlador.ToolTipAdicionarItensTema;
             btnExcluirItensTema.ToolTipText = controlador.ToolTipExcluirItensTema;
             btnFecharAluguel.ToolTipText = controlador.ToolTipFecharAluguel;
+            btnVisualizarItens.ToolTipText = controlador.ToolTipVisualizarItensTema;
 
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnAdicionarItensTema.Enabled = controlador.AdicionarItensTemaHabilitado;
             btnExcluirItensTema.Enabled = controlador.ExcluirItensTemaHabilitado;
+            btnVisualizarItens.Enabled = controlador.VisualizarItensTemaHabilitado;
             btnFecharAluguel.Enabled = controlador.FecharAluguelHabilitado;
         }
 
@@ -121,5 +129,6 @@ namespace FestaInfantil
                 return telaPrincipal;
             }
         }
+
     }
 }

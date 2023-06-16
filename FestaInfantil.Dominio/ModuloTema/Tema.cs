@@ -6,6 +6,7 @@
 
         public string nome;
         public List<ItemTema> itens;
+        public decimal valorTotal;
 
         public Tema(int id, string nome) 
         {
@@ -19,6 +20,15 @@
         public void LimparListaItens() 
         {
             itens.Clear();
+        }
+
+        public void AtualizarValorTotal() {
+
+            valorTotal = 0;
+
+            foreach (ItemTema item in itens) {
+                valorTotal += item.valor;
+            }
         }
 
         public void AdicionarItem(ItemTema item) 

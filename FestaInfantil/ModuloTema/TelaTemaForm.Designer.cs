@@ -28,88 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            labelTitulo = new Label();
-            txtNome = new TextBox();
-            label6 = new Label();
-            txtId = new TextBox();
-            btnCancelar = new Button();
-            btnSalvar = new Button();
-            SuspendLayout();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.txtValorTotal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
             // labelTitulo
             // 
-            labelTitulo.AutoSize = true;
-            labelTitulo.Location = new Point(21, 15);
-            labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new Size(46, 15);
-            labelTitulo.TabIndex = 27;
-            labelTitulo.Text = "Nome: ";
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Location = new System.Drawing.Point(21, 15);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(46, 15);
+            this.labelTitulo.TabIndex = 27;
+            this.labelTitulo.Text = "Nome: ";
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(88, 12);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(312, 23);
-            txtNome.TabIndex = 26;
+            this.txtNome.Location = new System.Drawing.Point(88, 12);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(312, 23);
+            this.txtNome.TabIndex = 26;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(21, 57);
-            label6.Name = "label6";
-            label6.Size = new Size(24, 15);
-            label6.TabIndex = 25;
-            label6.Text = "ID: ";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 15);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "ID: ";
             // 
             // txtId
             // 
-            txtId.Location = new Point(88, 57);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(38, 23);
-            txtId.TabIndex = 24;
-            txtId.Text = "0";
+            this.txtId.Location = new System.Drawing.Point(88, 60);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(38, 23);
+            this.txtId.TabIndex = 24;
+            this.txtId.Text = "0";
             // 
             // btnCancelar
             // 
-            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(307, 63);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(93, 50);
-            btnCancelar.TabIndex = 23;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(307, 124);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(93, 50);
+            this.btnCancelar.TabIndex = 23;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
-            btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSalvar.DialogResult = DialogResult.OK;
-            btnSalvar.Location = new Point(208, 63);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(93, 50);
-            btnSalvar.TabIndex = 22;
-            btnSalvar.Text = "Salvar";
-            btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click;
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSalvar.Location = new System.Drawing.Point(208, 124);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(93, 50);
+            this.btnSalvar.TabIndex = 22;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            // 
+            // txtValorTotal
+            // 
+            this.txtValorTotal.Location = new System.Drawing.Point(233, 57);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.ReadOnly = true;
+            this.txtValorTotal.Size = new System.Drawing.Size(167, 23);
+            this.txtValorTotal.TabIndex = 28;
+            this.txtValorTotal.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(163, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 15);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Valor Total:";
             // 
             // TelaTemaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(412, 125);
-            Controls.Add(labelTitulo);
-            Controls.Add(txtNome);
-            Controls.Add(label6);
-            Controls.Add(txtId);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnSalvar);
-            Name = "TelaTemaForm";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastrar Tema";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(412, 186);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtValorTotal);
+            this.Controls.Add(this.labelTitulo);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSalvar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "TelaTemaForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro de Tema";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -120,5 +144,7 @@
         private TextBox txtId;
         private Button btnCancelar;
         private Button btnSalvar;
+        private TextBox txtValorTotal;
+        private Label label1;
     }
 }

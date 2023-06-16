@@ -114,22 +114,23 @@
             // 
             // TelaExclusaoItensTemaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 453);
-            Controls.Add(label1);
-            Controls.Add(listItensTema);
-            Controls.Add(label6);
-            Controls.Add(txtId);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnConfirmar);
-            Controls.Add(labelTitulo);
-            Controls.Add(txtTitulo);
-            Name = "TelaExclusaoItensTemaForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Excluir Temas";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(527, 453);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listItensTema);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnConfirmar);
+            this.Controls.Add(this.labelTitulo);
+            this.Controls.Add(this.txtTitulo);
+            this.Name = "TelaExclusaoItensTemaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Exclusão de Itens do Tema";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

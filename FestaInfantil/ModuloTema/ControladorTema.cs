@@ -1,13 +1,16 @@
-﻿using FestaInfantil.Dominio.ModuloTema;
+﻿using FestaInfantil.Dominio.ModuloFesta;
+using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloTema {
     public class ControladorTema : ControladorBase {
 
         private IRepositorioTema repositorioTema;
+        private IRepositorioFesta repositorioFesta;
         private TabelaTemaControl tabelaTemas;
         
-        public ControladorTema(IRepositorioTema repositorioTema) {
+        public ControladorTema(IRepositorioTema repositorioTema, IRepositorioFesta repositorioFesta) {
             this.repositorioTema = repositorioTema;
+            this.repositorioFesta = repositorioFesta;
         }
 
         public override string ToolTipInserir => "Inserir novo Tema";
@@ -20,20 +23,37 @@ namespace FestaInfantil.ModuloTema {
 
         public override string ToolTipAdicionarItensTema => "Adicionar Itens no Tema Selecionado";
 
-        public override string ToolTipExcluirItensTema => "Excluir Itens no Tema Selecionado";
+        public override string ToolTipExcluirItensTema => "Excluir Itens do Tema Selecionado";
+        public override string ToolTipVisualizarItensTema => "Visualziar Itens do Tema Selecionado";
 
         public override bool AdicionarItensTemaHabilitado => true;
         public override bool ExcluirItensTemaHabilitado => true;
+        public override bool VisualizarItensTemaHabilitado => true;
+
 
         public override void Inserir() {
-            TelaTemaForm telaTema = new TelaTemaForm();
+            TelaTemaForm telaTema = new TelaTemaForm(repositorioTema);
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK) {
+
                 Tema novoTema = telaTema.ObterTema();
-                repositorioTema.Inserir(novoTema);
-                CarregarTemas();
+
+                if (VerificarNomeTema(novoTema)) {
+                    MessageBox.Show("Já existe um tema com esse nome!", "Novo Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Inserir();
+                } 
+                else {
+                    repositorioTema.Inserir(novoTema);
+                    CarregarTemas();
+                }
             }
+        }
+
+        private bool VerificarNomeTema(Tema novoTema) {
+            List<Tema> listaTemas = repositorioTema.SelecionarTodos();
+
+            return listaTemas.Any(tema => tema.nome.Equals(novoTema.nome));
         }
 
         public override void Editar() {
@@ -45,7 +65,7 @@ namespace FestaInfantil.ModuloTema {
                 return;
             }
 
-            TelaTemaForm telaTema = new TelaTemaForm();
+            TelaTemaForm telaTema = new TelaTemaForm(repositorioTema);
             telaTema.ConfigurarTela(temaSelecionado);
 
             DialogResult opcaoEscolhida = telaTema.ShowDialog();
@@ -68,6 +88,10 @@ namespace FestaInfantil.ModuloTema {
                 MessageBox.Show("Nenhum Tema Selecionado!", "Excluir Temas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (TemaComAluguelAberto(tema)) {
+                MessageBox.Show("Não é possível excluir um tema que possua uma festa em aberto!", "Excluir Temas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o tema {tema.nome} ?", "Exclusão de Temas",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -77,6 +101,26 @@ namespace FestaInfantil.ModuloTema {
                 repositorioTema.Excluir(tema);
                 CarregarTemas();
             }
+        }
+
+        private bool TemaComAluguelAberto(Tema tema) {
+
+            List<Festa> festasAbertas =  ListaFestasAbertas();
+
+            return festasAbertas.Any(f => f.tema == tema);
+        }
+
+        private List<Festa> ListaFestasAbertas() {
+
+            List<Festa> festasAbertas = new List<Festa>();
+            List<Festa> festas = repositorioFesta.SelecionarTodos();
+
+            foreach (Festa f in festas) {
+                if (f.encerrado == false) {
+                    festasAbertas.Add(f);
+                }
+            }
+            return festasAbertas;
         }
 
         public override void AdicionarItensTema() {
@@ -100,6 +144,8 @@ namespace FestaInfantil.ModuloTema {
                     temaSelecionado.AdicionarItem(item);
 
                 repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
+
+                temaSelecionado.AtualizarValorTotal();
 
                 CarregarTemas();
             }
@@ -134,9 +180,26 @@ namespace FestaInfantil.ModuloTema {
 
                     repositorioTema.Editar(temaSelecionado.id, temaSelecionado);
 
+                    temaSelecionado.AtualizarValorTotal();
+
                     CarregarTemas();
                 }
             }
+        }
+
+        public override void VisualizarItensTema() {
+            Tema temaSelecionado = ObterTemaSelecionado();
+
+            if (temaSelecionado == null) {
+                MessageBox.Show("Nenhuma Tema Selecionado!", "Visualização de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaVisualizacaoItensForm telaVisualizacaoItens = new TelaVisualizacaoItensForm(temaSelecionado);
+
+            telaVisualizacaoItens.ShowDialog();
+
+
         }
 
         private Tema ObterTemaSelecionado() {
@@ -155,6 +218,7 @@ namespace FestaInfantil.ModuloTema {
         }
 
         private void CarregarTemas() {
+            
             List<Tema> temas = repositorioTema.SelecionarTodos();
             tabelaTemas.AtualizarRegistros(temas);
             

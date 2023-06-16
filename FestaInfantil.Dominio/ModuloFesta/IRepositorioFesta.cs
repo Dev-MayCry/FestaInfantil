@@ -7,5 +7,7 @@
         void Excluir(Festa festaSelecionado);
         Festa SelecionarPorId(int id);
         List<Festa> SelecionarTodos();
+
+        
     }
 }

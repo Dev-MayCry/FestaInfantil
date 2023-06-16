@@ -19,6 +19,10 @@ namespace FestaInfantil.ModuloTema {
                     Name = "nome",
                     HeaderText= "Tema"
                 },
+                new DataGridViewTextBoxColumn(){
+                    Name = "valorTotal",
+                    HeaderText= "Valor Total"
+                },
             };
 
             grid.Columns.AddRange(colunas);
@@ -29,7 +33,7 @@ namespace FestaInfantil.ModuloTema {
             grid.Rows.Clear();
 
             foreach (Tema t in temas) 
-                grid.Rows.Add(t.id, t.nome);
+                grid.Rows.Add(t.id, t.nome,t.valorTotal);
         }
 
         public int ObterIdSelecionado() {

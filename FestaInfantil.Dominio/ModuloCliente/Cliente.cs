@@ -6,7 +6,7 @@ namespace FestaInfantil.Dominio.ModuloCliente
     {
         public string nome { get; set; }
         public string telefone;
-        public bool antigo = false;
+
         public Cliente()
         {
 

@@ -24,20 +24,16 @@ namespace FestaInfantil.ModuloFesta
                     HeaderText= "Cliente"
                 },
                 new DataGridViewTextBoxColumn(){
+                    Name = "telefone",
+                    HeaderText= "Telefone"
+                },
+                new DataGridViewTextBoxColumn(){
                     Name = "tema",
                     HeaderText= "Tema"
                 },
                 new DataGridViewTextBoxColumn(){
                     Name = "data",
                     HeaderText= "Data"
-                },
-                new DataGridViewTextBoxColumn(){
-                    Name = "hora",
-                    HeaderText= "Horario"
-                },
-                new DataGridViewTextBoxColumn(){
-                    Name = "endereco",
-                    HeaderText= "Endereço"
                 },
                 new DataGridViewTextBoxColumn(){
                     Name = "preco",
@@ -61,8 +57,8 @@ namespace FestaInfantil.ModuloFesta
             grid.Rows.Clear();
 
             foreach (Festa f in festas)
-                if (f.encerrado) grid.Rows.Add(f.id, f.cliente, f.tema, f.data.ToShortDateString(), f.horaInicio.Hours + ":" + f.horaInicio.Minutes, f.endereco, f.valorTotal, f.valorRestante, "Encerrado");
-                else grid.Rows.Add(f.id, f.cliente, f.tema, f.data.ToShortDateString(), f.horaInicio.Hours + ":" + f.horaInicio.Minutes, f.endereco, f.valorTotal, f.valorRestante, "Em Aberto");
+                if (f.encerrado) grid.Rows.Add(f.id, f.cliente, f.cliente.telefone, f.tema, f.data.ToShortDateString(), f.valorTotal, f.valorRestante, "Encerrado");
+                else grid.Rows.Add(f.id, f.cliente, f.cliente.telefone, f.tema, f.data.ToShortDateString(), f.valorTotal, f.valorRestante, "Em Aberto");
         }
 
         public int ObterIdSelecionado()
