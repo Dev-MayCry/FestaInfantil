@@ -49,8 +49,9 @@
             label9 = new Label();
             txtId = new TextBox();
             listaItens = new CheckedListBox();
-            numericUpDown1 = new NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            txtDesconto = new NumericUpDown();
+            label10 = new Label();
+            ((System.ComponentModel.ISupportInitialize)txtDesconto).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -240,14 +241,27 @@
             listaItens.Name = "listaItens";
             listaItens.Size = new Size(320, 148);
             listaItens.TabIndex = 21;
-            listaItens.SelectedIndexChanged += listaItens_SelectedValueChanged;
+            listaItens.SelectedValueChanged += listaItens_SelectedValueChanged;
             // 
-            // numericUpDown1
+            // txtDesconto
             // 
-            numericUpDown1.Location = new Point(175, 396);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(69, 23);
-            numericUpDown1.TabIndex = 22;
+            txtDesconto.Location = new Point(343, 55);
+            txtDesconto.Maximum = new decimal(new int[] { 50, 0, 0, 0 });
+            txtDesconto.Minimum = new decimal(new int[] { 40, 0, 0, 0 });
+            txtDesconto.Name = "txtDesconto";
+            txtDesconto.Size = new Size(69, 23);
+            txtDesconto.TabIndex = 22;
+            txtDesconto.Value = new decimal(new int[] { 40, 0, 0, 0 });
+            txtDesconto.ValueChanged += txtDesconto_ValueChanged;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(264, 59);
+            label10.Name = "label10";
+            label10.Size = new Size(73, 15);
+            label10.TabIndex = 23;
+            label10.Text = "% Desconto:";
             // 
             // TelaFestaForm
             // 
@@ -256,7 +270,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
             ClientSize = new Size(430, 432);
-            Controls.Add(numericUpDown1);
+            Controls.Add(label10);
+            Controls.Add(txtDesconto);
             Controls.Add(listaItens);
             Controls.Add(txtId);
             Controls.Add(label9);
@@ -284,7 +299,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Festas";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtDesconto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -312,6 +327,7 @@
         private Label label9;
         private TextBox txtId;
         private CheckedListBox listaItens;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown txtDesconto;
+        private Label label10;
     }
 }

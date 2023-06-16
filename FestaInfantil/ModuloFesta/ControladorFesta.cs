@@ -116,6 +116,7 @@ namespace FestaInfantil.ModuloFesta
 
             if (opcaoEscolhida == DialogResult.OK)
             {
+                festa.data = DateTime.Today;
                 festa.EncerrarFesta();
             }
             repositorioFesta.Editar(festa.id, festa);
@@ -172,6 +173,7 @@ namespace FestaInfantil.ModuloFesta
         {
             List<Festa> festas = repositorioFesta.SelecionarTodos();
             tabelaFestas.AtualizarRegistros(festas);
+            TelaPrincipal.Instancia.AtualizarRodape("");
         }
 
     }

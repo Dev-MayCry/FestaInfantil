@@ -1,6 +1,7 @@
 ﻿using FestaInfantil.Dominio.ModuloCliente;
 using FestaInfantil.Dominio.ModuloFesta;
 using FestaInfantil.Dominio.ModuloTema;
+using System.Collections;
 
 namespace FestaInfantil.ModuloFesta
 {
@@ -9,20 +10,27 @@ namespace FestaInfantil.ModuloFesta
         private IRepositorioFesta festas;
         private IRepositorioCliente clientes;
 
+
         public TelaFestaForm(IRepositorioTema temas, IRepositorioCliente clientes, IRepositorioFesta festas)
         {
             InitializeComponent();
 
-            CarregarInformacoes(temas, clientes);
-
             this.festas = festas;
             this.clientes = clientes;
+
+            CarregarInformacoes(temas, clientes);
+        }
+
+        private void ConfereSeClienteTemDesconto()
+        {
+            Cliente? cliente = cmbBoxCliente.SelectedItem as Cliente;
+
+            CalculaDesconto(cliente);
+            AtualizaValores();
         }
 
         private void CarregarInformacoes(IRepositorioTema temas, IRepositorioCliente clientes)
         {
-            txtData.MinDate = DateTime.Now.AddDays(1);
-
             foreach (Tema t in temas.SelecionarTodos())
             {
                 if (t.itens.Count > 0)
@@ -66,12 +74,11 @@ namespace FestaInfantil.ModuloFesta
             }
 
             valorTotal *= desconto;
+            txtValorTotal.Text = valorTotal.ToString("N2");
 
-            txtValorTotal.Text = valorTotal.ToString();
+            double valorEntrada = valorTotal - (valorTotal * (double)txtDesconto.Value / 100.0);
 
-            double valorEntrada = valorTotal * 0.4;
-
-            txtValorEntrada.Text = valorEntrada.ToString();
+            txtValorEntrada.Text = valorEntrada.ToString("N2");
         }
 
         private void listaItens_SelectedValueChanged(object sender, EventArgs e)
@@ -82,24 +89,23 @@ namespace FestaInfantil.ModuloFesta
         private void CalculaDesconto(Cliente cliente)
         {
             int tetoDesconto = 5;
+            int nDesconto = 2;
 
-            if(clientes.SelecionarTodos().Any(c => c.nome == cliente.nome))
+            if (festas.SelecionarTodos().Any(f => f.cliente.nome == cliente.nome))
             {
                 int contadorCliente = 0;
-                foreach (Cliente c in clientes.SelecionarTodos())
-                    if(c.nome == cliente.nome) contadorCliente++;
-                
-                if (contadorCliente * 2 > 5) desconto = 0.95;
-                else desconto =  1 - (contadorCliente * 2 / 100);
+                foreach (Festa f in festas.SelecionarTodos())
+                    if (f.cliente.nome == cliente.nome) contadorCliente++;
+
+                if (contadorCliente * nDesconto > tetoDesconto) desconto = 0.95;
+                else desconto = 1 - (contadorCliente * nDesconto / 100.0);
             }
+            else desconto = 1;
         }
 
         private void cmbBoxCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cliente cliente = cmbBoxCliente.SelectedItem as Cliente;
-
-            CalculaDesconto(cliente);
-
+            ConfereSeClienteTemDesconto();
         }
 
         public Festa ObterFesta()
@@ -140,15 +146,25 @@ namespace FestaInfantil.ModuloFesta
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            ConfereSeClienteTemDesconto();
+
             Festa festa = ObterFesta();
 
             string[] erros = festa.Validar();
 
-            if (erros.Length > 0 || VerificarTemaDisponivelNaData(festa))
+            bool valorNulo = false;
+
+            if (listaItens.CheckedItems.Count == 0) valorNulo = true;
+            
+            if (erros.Length > 0 || VerificarTemaDisponivelNaData(festa) || valorNulo)
             {
                 if (VerificarTemaDisponivelNaData(festa))
                 {
                     MessageBox.Show($"O tema {festa.tema} já está reservado na data selecionada. ", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else if (valorNulo)
+                {
+                    MessageBox.Show($"Nenhum Item do tema {festa.tema} selecionado. ", "Nova Festa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
@@ -161,11 +177,6 @@ namespace FestaInfantil.ModuloFesta
 
         internal void ConfigurarTela(Festa festa)
         {
-            if (festa.data < DateTime.Today)
-            {
-                txtData.MinDate = festa.data;
-            }
-
             txtId.Text = festa.id.ToString();
             cmbBoxTema.SelectedItem = festa.tema;
             cmbBoxCliente.SelectedItem = festa.cliente;
@@ -186,6 +197,11 @@ namespace FestaInfantil.ModuloFesta
 
                 i++;
             }
+        }
+
+        private void txtDesconto_ValueChanged(object sender, EventArgs e)
+        {
+            AtualizaValores();
         }
     }
 }
