@@ -173,7 +173,7 @@ namespace FestaInfantil.ModuloFesta
         {
             List<Festa> festas = repositorioFesta.SelecionarTodos();
             tabelaFestas.AtualizarRegistros(festas);
-            TelaPrincipal.Instancia.AtualizarRodape("");
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Festas");
         }
 
     }

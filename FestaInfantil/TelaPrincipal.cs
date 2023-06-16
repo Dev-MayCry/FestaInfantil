@@ -59,18 +59,21 @@ namespace FestaInfantil
         {
             controlador = new ControladorCliente(repositorioCliente);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Clientes");
         }
 
         private void temasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorTema(repositorioTema);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Temas");
         }
 
         private void festaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorFesta(repositorioFesta, repositorioTema, repositorioCliente);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Festas");
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
