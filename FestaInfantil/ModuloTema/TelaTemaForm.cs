@@ -35,10 +35,7 @@ namespace FestaInfantil.ModuloTema
         {
             Tema tema = ObterTema();
 
-            //if (VerificarNomeTema(tema)) {
-            //    MessageBox.Show("Já existe um tema com esse nome!", "Novo Temas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
+            
 
             string[] erros = tema.Validar();
 
@@ -50,10 +47,6 @@ namespace FestaInfantil.ModuloTema
             }
         }
 
-        private bool VerificarNomeTema(Tema Novotema) {
-            List<Tema> listaTemas = temas.SelecionarTodos();
-
-            return listaTemas.Any(tema => tema.nome.Equals(Novotema.nome));
-        }
+        
     }
 }

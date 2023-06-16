@@ -79,21 +79,21 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // temasToolStripMenuItem
             // 
             this.temasToolStripMenuItem.Name = "temasToolStripMenuItem";
-            this.temasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.temasToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.temasToolStripMenuItem.Text = "Temas";
             this.temasToolStripMenuItem.Click += new System.EventHandler(this.temasToolStripMenuItem_Click);
             // 
             // festaToolStripMenuItem
             // 
             this.festaToolStripMenuItem.Name = "festaToolStripMenuItem";
-            this.festaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.festaToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.festaToolStripMenuItem.Text = "Festa";
             this.festaToolStripMenuItem.Click += new System.EventHandler(this.festaToolStripMenuItem_Click);
             // 
@@ -191,10 +191,11 @@
             // btnVisualizarItens
             // 
             this.btnVisualizarItens.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnVisualizarItens.Image = ((System.Drawing.Image)(resources.GetObject("btnVisualizarItens.Image")));
+            this.btnVisualizarItens.Image = global::FestaInfantil.Properties.Resources.visibility_FILL0_wght500_GRAD0_opsz24;
+            this.btnVisualizarItens.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnVisualizarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnVisualizarItens.Name = "btnVisualizarItens";
-            this.btnVisualizarItens.Size = new System.Drawing.Size(23, 28);
+            this.btnVisualizarItens.Size = new System.Drawing.Size(28, 28);
             this.btnVisualizarItens.Click += new System.EventHandler(this.btnVisualizarItens_Click);
             // 
             // toolStripSeparator4

@@ -197,6 +197,8 @@ namespace FestaInfantil.ModuloTema {
 
             TelaVisualizacaoItensForm telaVisualizacaoItens = new TelaVisualizacaoItensForm(temaSelecionado);
 
+            telaVisualizacaoItens.ShowDialog();
+
 
         }
 
@@ -216,6 +218,7 @@ namespace FestaInfantil.ModuloTema {
         }
 
         private void CarregarTemas() {
+            
             List<Tema> temas = repositorioTema.SelecionarTodos();
             tabelaTemas.AtualizarRegistros(temas);
         }
