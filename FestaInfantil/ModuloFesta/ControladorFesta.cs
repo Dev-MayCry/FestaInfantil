@@ -134,6 +134,7 @@ namespace FestaInfantil.ModuloFesta
         {
             List<Festa> festas = repositorioFesta.SelecionarTodos();
             tabelaFestas.AtualizarRegistros(festas);
+            
         }
 
         public override void FecharAluguel()

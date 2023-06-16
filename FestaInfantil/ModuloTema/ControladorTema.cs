@@ -157,6 +157,7 @@ namespace FestaInfantil.ModuloTema {
         private void CarregarTemas() {
             List<Tema> temas = repositorioTema.SelecionarTodos();
             tabelaTemas.AtualizarRegistros(temas);
+            
         }
     }
 }

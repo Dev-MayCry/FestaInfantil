@@ -100,6 +100,7 @@ namespace FestaInfantil.ModuloCliente
         {
             List<Cliente> cliente = repositorioCliente.SelecionarTodos();
             tabelaCliente.AtualizarRegistros(cliente);
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Clientes");
         }
     }
 }
