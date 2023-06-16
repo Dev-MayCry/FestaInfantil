@@ -1,4 +1,5 @@
 ﻿using FestaInfantil.Dominio.ModuloTema;
+using System.Windows.Forms;
 
 namespace FestaInfantil.ModuloTema
 {
@@ -33,6 +34,7 @@ namespace FestaInfantil.ModuloTema
 
         private ItemTema ObterItemTema()
         {
+
             string nome = txtDescricao.Text;
 
             decimal valor;
@@ -42,13 +44,33 @@ namespace FestaInfantil.ModuloTema
                 valor = Convert.ToDecimal(txtValor.Text);
 
             ItemTema itemTema = new ItemTema(nome, valor);
+            if (VerificarNomeItem(itemTema)) {
+                MessageBox.Show("Já existe um tema com esse nome!", "Novo Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtDescricao.Text = "";
+                
 
-            listItens.Items.Add(itemTema);
+            } else {
 
-            txtDescricao.Text = "";
-            txtValor.Text = "";
+                listItens.Items.Add(itemTema);
+
+                txtDescricao.Text = "";
+                txtValor.Text = "";
+            }
+            
 
             return itemTema;
+        }
+
+        private bool VerificarNomeItem(ItemTema itemTema) {
+
+            List<ItemTema> listaitens = new List<ItemTema>();
+
+            foreach (ItemTema item in listItens.Items) {
+                listaitens.Add(item);
+            }
+
+
+            return listaitens.Any(item => item.nome.Equals(itemTema.nome));
         }
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)

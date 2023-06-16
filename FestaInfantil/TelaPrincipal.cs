@@ -63,7 +63,7 @@ namespace FestaInfantil
 
         private void temasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTema(repositorioTema);
+            controlador = new ControladorTema(repositorioTema,repositorioFesta);
             ConfigurarTelaPrincipal(controlador);
         }
 
