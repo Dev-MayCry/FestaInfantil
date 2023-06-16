@@ -13,7 +13,7 @@
         public ItemTema() {}
 
         public override string ToString() {
-            return nome + " - R$: " + valor;
+            return "ID: "+ id + " - "+ nome + " - R$: " + valor;
         }
 
         public override void AtualizarInformacoes(ItemTema registroAtualizado) {}

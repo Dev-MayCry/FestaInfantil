@@ -45,6 +45,9 @@ namespace FestaInfantil
         {
             controlador.AdicionarItensTema();
         }
+        private void btnVisualizarItens_Click(object sender, EventArgs e) {
+            controlador.VisualizarItensTema();
+        }
         private void btnExcluirItensTema_Click(object sender, EventArgs e)
         {
             controlador.ExcluirItensTema();
@@ -97,12 +100,14 @@ namespace FestaInfantil
             btnAdicionarItensTema.ToolTipText = controlador.ToolTipAdicionarItensTema;
             btnExcluirItensTema.ToolTipText = controlador.ToolTipExcluirItensTema;
             btnFecharAluguel.ToolTipText = controlador.ToolTipFecharAluguel;
+            btnVisualizarItens.ToolTipText = controlador.ToolTipVisualizarItensTema;
 
             btnInserir.Enabled = controlador.InserirHabilitado;
             btnEditar.Enabled = controlador.EditarHabilitado;
             btnExcluir.Enabled = controlador.ExcluirHabilitado;
             btnAdicionarItensTema.Enabled = controlador.AdicionarItensTemaHabilitado;
             btnExcluirItensTema.Enabled = controlador.ExcluirItensTemaHabilitado;
+            btnVisualizarItens.Enabled = controlador.VisualizarItensTemaHabilitado;
             btnFecharAluguel.Enabled = controlador.FecharAluguelHabilitado;
         }
 
@@ -121,5 +126,6 @@ namespace FestaInfantil
                 return telaPrincipal;
             }
         }
+
     }
 }

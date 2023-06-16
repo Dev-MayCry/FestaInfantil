@@ -47,12 +47,10 @@ namespace FestaInfantil.ModuloTema
             if (VerificarNomeItem(itemTema)) {
                 MessageBox.Show("Já existe um tema com esse nome!", "Novo Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDescricao.Text = "";
-                
 
             } else {
 
                 listItens.Items.Add(itemTema);
-
                 txtDescricao.Text = "";
                 txtValor.Text = "";
             }

@@ -23,10 +23,13 @@ namespace FestaInfantil.ModuloTema {
 
         public override string ToolTipAdicionarItensTema => "Adicionar Itens no Tema Selecionado";
 
-        public override string ToolTipExcluirItensTema => "Excluir Itens no Tema Selecionado";
+        public override string ToolTipExcluirItensTema => "Excluir Itens do Tema Selecionado";
+        public override string ToolTipVisualizarItensTema => "Visualziar Itens do Tema Selecionado";
 
         public override bool AdicionarItensTemaHabilitado => true;
         public override bool ExcluirItensTemaHabilitado => true;
+        public override bool VisualizarItensTemaHabilitado => true;
+
 
         public override void Inserir() {
             TelaTemaForm telaTema = new TelaTemaForm(repositorioTema);
@@ -182,6 +185,19 @@ namespace FestaInfantil.ModuloTema {
                     CarregarTemas();
                 }
             }
+        }
+
+        public override void VisualizarItensTema() {
+            Tema temaSelecionado = ObterTemaSelecionado();
+
+            if (temaSelecionado == null) {
+                MessageBox.Show("Nenhuma Tema Selecionado!", "Visualização de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            TelaVisualizacaoItensForm telaVisualizacaoItens = new TelaVisualizacaoItensForm(temaSelecionado);
+
+
         }
 
         private Tema ObterTemaSelecionado() {
