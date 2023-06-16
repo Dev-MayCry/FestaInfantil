@@ -131,6 +131,11 @@ namespace FestaInfantil.ModuloTema {
                 MessageBox.Show("Nenhuma Tema Selecionado!", "Adição de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (TemaComAluguelAberto(temaSelecionado))
+            {
+                MessageBox.Show("O tema selecionado possui uma festa em aberto!", "Adição de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             TelaCadastroItensTemaForm telaCadastroItensTemaForm = new TelaCadastroItensTemaForm(temaSelecionado);
 
@@ -156,6 +161,11 @@ namespace FestaInfantil.ModuloTema {
 
             if (temaSelecionado == null) {
                 MessageBox.Show("Nenhuma Tema Selecionado!", "Exclusão de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (TemaComAluguelAberto(temaSelecionado))
+            {
+                MessageBox.Show("O tema selecionado possui uma festa em aberto!", "Exclusão de itens do Tema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -221,7 +231,7 @@ namespace FestaInfantil.ModuloTema {
             
             List<Tema> temas = repositorioTema.SelecionarTodos();
             tabelaTemas.AtualizarRegistros(temas);
-            
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Temas");
         }
     }
 }

@@ -35,8 +35,6 @@ namespace FestaInfantil.ModuloTema
         {
             Tema tema = ObterTema();
 
-            
-
             string[] erros = tema.Validar();
 
             if (erros.Length > 0)
@@ -47,6 +45,9 @@ namespace FestaInfantil.ModuloTema
             }
         }
 
-        
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Temas");
+        }
     }
 }

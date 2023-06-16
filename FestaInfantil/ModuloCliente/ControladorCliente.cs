@@ -1,5 +1,7 @@
 ﻿using e_Agenda.WinApp.ModuloContato;
 using FestaInfantil.Dominio.ModuloCliente;
+using FestaInfantil.Dominio.ModuloFesta;
+using FestaInfantil.Dominio.ModuloTema;
 
 namespace FestaInfantil.ModuloCliente
 {
@@ -7,11 +9,14 @@ namespace FestaInfantil.ModuloCliente
     {
 
         private IRepositorioCliente repositorioCliente;
+        private IRepositorioFesta repositorioFesta;
         private TabelaClienteControl tabelaCliente;
         
-        public ControladorCliente(IRepositorioCliente repositorioCliente)
+        public ControladorCliente(IRepositorioCliente repositorioCliente, IRepositorioFesta repositorioFesta)
         {
             this.repositorioCliente = repositorioCliente;
+            this.repositorioFesta = repositorioFesta;
+
         }
 
         public override string ToolTipInserir => "Inserir novo Cliente";
@@ -69,6 +74,11 @@ namespace FestaInfantil.ModuloCliente
                 MessageBox.Show("Nenhum Cliente Selecionado!", "Excluir Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (ClienteComAluguelAberto(clienteSelecionado))
+            {
+                MessageBox.Show("O cliente selecionado possui uma festa em aberto!", "Excluir Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir o Cliente {clienteSelecionado.nome} ?", "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -77,6 +87,30 @@ namespace FestaInfantil.ModuloCliente
                 repositorioCliente.Excluir(clienteSelecionado);
                 CarregarCliente();
             }
+        }
+
+        private bool ClienteComAluguelAberto(Cliente cliente)
+        {
+
+            List<Festa> festasAbertas = ListaFestasAbertas();
+
+            return festasAbertas.Any(f => f.cliente == cliente);
+        }
+
+        private List<Festa> ListaFestasAbertas()
+        {
+
+            List<Festa> festasAbertas = new List<Festa>();
+            List<Festa> festas = repositorioFesta.SelecionarTodos();
+
+            foreach (Festa f in festas)
+            {
+                if (f.encerrado == false)
+                {
+                    festasAbertas.Add(f);
+                }
+            }
+            return festasAbertas;
         }
 
         private Cliente ObterClienteSelecionado()

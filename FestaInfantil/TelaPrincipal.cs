@@ -60,7 +60,7 @@ namespace FestaInfantil
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCliente(repositorioCliente);
+            controlador = new ControladorCliente(repositorioCliente, repositorioFesta);
             ConfigurarTelaPrincipal(controlador);
             AtualizarRodape("Visualizando Clientes");
         }

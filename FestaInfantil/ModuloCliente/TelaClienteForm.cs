@@ -74,6 +74,9 @@ namespace FestaInfantil.ModuloCliente
             }
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Clientes");
+        }
     }
 }

@@ -155,7 +155,7 @@ namespace FestaInfantil.ModuloFesta
             bool valorNulo = false;
 
             if (listaItens.CheckedItems.Count == 0) valorNulo = true;
-            
+
             if (erros.Length > 0 || VerificarTemaDisponivelNaData(festa) || valorNulo)
             {
                 if (VerificarTemaDisponivelNaData(festa))
@@ -202,6 +202,11 @@ namespace FestaInfantil.ModuloFesta
         private void txtDesconto_ValueChanged(object sender, EventArgs e)
         {
             AtualizaValores();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Festas");
         }
     }
 }

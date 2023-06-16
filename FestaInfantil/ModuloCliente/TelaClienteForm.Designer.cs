@@ -37,7 +37,7 @@
             lbTelefone = new Label();
             button1 = new Button();
             btnSalvar = new Button();
-            this.txtTelefone = new MaskedTextBox();
+            txtTelefone = new MaskedTextBox();
             SuspendLayout();
             // 
             // labelTitulo
@@ -115,6 +115,7 @@
             button1.TabIndex = 37;
             button1.Text = "Cancelar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnSalvar
             // 
@@ -130,20 +131,19 @@
             // 
             // txtTelefone
             // 
-            this.txtTelefone.HidePromptOnLeave = true;
-            this.txtTelefone.Location = new Point(81, 74);
-            this.txtTelefone.Mask = "(99) 00000-0000";
-            this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new Size(91, 23);
-            this.txtTelefone.TabIndex = 38;
-            
+            txtTelefone.HidePromptOnLeave = true;
+            txtTelefone.Location = new Point(81, 74);
+            txtTelefone.Mask = "(99) 00000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(91, 23);
+            txtTelefone.TabIndex = 38;
             // 
             // TelaClienteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(412, 189);
-            Controls.Add(this.txtTelefone);
+            Controls.Add(txtTelefone);
             Controls.Add(button1);
             Controls.Add(btnSalvar);
             Controls.Add(lbTelefone);
