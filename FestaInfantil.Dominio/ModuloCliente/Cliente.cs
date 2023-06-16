@@ -1,4 +1,6 @@
-﻿namespace FestaInfantil.Dominio.ModuloCliente
+﻿using System.Text.RegularExpressions;
+
+namespace FestaInfantil.Dominio.ModuloCliente
 {
     public class Cliente : EntidadeBase<Cliente>
     {
@@ -41,9 +43,9 @@
 
             if (string.IsNullOrEmpty(nome))
                 erros.Add("O campo 'nome' é obrigatório");
-            string txttelefone = telefone.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ","");
-            if (string.IsNullOrEmpty(txttelefone)&& txttelefone.Count()!=11)
-                erros.Add("O campo 'telefone' é obrigatório");
+
+            if (string.IsNullOrEmpty(telefone) || telefone.Count(char.IsDigit) < 9)
+                erros.Add("O campo 'telefone' é obrigatório e deve conter os digitos corretos");
 
             return erros.ToArray();
         }
