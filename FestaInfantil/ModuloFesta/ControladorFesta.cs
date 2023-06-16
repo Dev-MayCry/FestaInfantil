@@ -52,6 +52,12 @@ namespace FestaInfantil.ModuloFesta
                 return;
             }
 
+            if (festaSelecionada.encerrado)
+            {
+                MessageBox.Show("A Festa Selecionada Está Encerrada!", "Editar Festas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             TelaFestaForm telaFesta = new TelaFestaForm(repositorioTema, repositorioCliente, repositorioFesta);
 
             telaFesta.ConfigurarTela(festaSelecionada);
@@ -75,6 +81,12 @@ namespace FestaInfantil.ModuloFesta
                 return;
             }
 
+            if (!festaSelecionada.encerrado)
+            {
+                MessageBox.Show("A Festa Selecionada Não Está Encerrada!", "Excluir Festas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Excluir a festa {festaSelecionada.tema} ?", "Exclusão de Festas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (opcaoEscolhida == DialogResult.OK)
@@ -82,6 +94,33 @@ namespace FestaInfantil.ModuloFesta
                 repositorioFesta.Excluir(festaSelecionada);
                 CarregarFestas();
             }
+        }
+
+        public override void EncerrarAluguel()
+        {
+            Festa festa = ObterFestaSelecionada();
+
+            if (festa == null)
+            {
+                MessageBox.Show("Nenhuma Festa Selecionada!", "Encerrar Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (festa.encerrado)
+            {
+                MessageBox.Show("A Festa Selecionada Já Está Encerrada!", "Encerrar Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Encerrar o Aluguel {festa.tema} ?", "Encerramento de Aluguel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                festa.data = DateTime.Today;
+                festa.EncerrarFesta();
+            }
+            repositorioFesta.Editar(festa.id, festa);
+            CarregarFestas();
         }
 
         private bool VerificarClienteTema()
@@ -134,25 +173,8 @@ namespace FestaInfantil.ModuloFesta
         {
             List<Festa> festas = repositorioFesta.SelecionarTodos();
             tabelaFestas.AtualizarRegistros(festas);
+            TelaPrincipal.Instancia.AtualizarRodape("Visualizando Festas");
         }
 
-        public override void FecharAluguel()
-        {
-            Festa festa = ObterFestaSelecionada();
-
-            if (festa == null) {
-                MessageBox.Show("Nenhuma Festa Selecionada!", "Encerrar Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja Encerrar o Aluguel {festa.tema} ?", "Encerramento de Aluguel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (opcaoEscolhida == DialogResult.OK)
-            {
-                festa.EncerrarFesta();
-            }
-            repositorioFesta.Editar(festa.id,festa);
-            CarregarFestas();
-        }
     }
 }

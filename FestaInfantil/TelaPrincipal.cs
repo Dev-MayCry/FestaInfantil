@@ -55,25 +55,28 @@ namespace FestaInfantil
 
         private void btnFecharAluguel_Click(object sender, EventArgs e)
         {
-            controlador.FecharAluguel();
+            controlador.EncerrarAluguel();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorCliente(repositorioCliente);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Clientes");
         }
 
         private void temasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorTema(repositorioTema,repositorioFesta);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Temas");
         }
 
         private void festaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorFesta(repositorioFesta, repositorioTema, repositorioCliente);
             ConfigurarTelaPrincipal(controlador);
+            AtualizarRodape("Visualizando Festas");
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
