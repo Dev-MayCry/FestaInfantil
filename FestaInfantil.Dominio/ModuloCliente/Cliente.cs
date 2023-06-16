@@ -41,8 +41,8 @@ namespace FestaInfantil.Dominio.ModuloCliente
         {
             List<string> erros = new List<string>();
 
-            if (string.IsNullOrEmpty(nome))
-                erros.Add("O campo 'nome' é obrigatório");
+            if (string.IsNullOrEmpty(nome) || nome.Any(char.IsDigit) || !Regex.IsMatch(nome, @"^[a-zA-Z\s]+$") || nome.Length < 5)
+                erros.Add("O campo 'nome' é obrigatório ou possui caracteres inválidos. Digite um nome válido.");
 
             if (string.IsNullOrEmpty(telefone) || telefone.Count(char.IsDigit) < 9)
                 erros.Add("O campo 'telefone' é obrigatório e deve conter os digitos corretos");
