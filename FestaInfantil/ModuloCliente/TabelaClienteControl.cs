@@ -58,5 +58,9 @@ namespace e_Agenda.WinApp.ModuloContato
 
             return id;
         }
+        public DataGridViewRowCollection ObterTodosClientes()
+        {          
+           return  gridCliente.Rows;            
+        }
     }
 }

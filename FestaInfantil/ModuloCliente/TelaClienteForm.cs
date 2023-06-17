@@ -20,7 +20,7 @@ namespace FestaInfantil.ModuloCliente
         {
             int id = Convert.ToInt32(txtId.Text);
             string nome = txtNome.Text;
-
+            txtNome.Text = txtNome.Text.ToUpper();
             string telefone = txtTelefone.Text;
 
             Cliente cliente = new Cliente(nome, telefone);

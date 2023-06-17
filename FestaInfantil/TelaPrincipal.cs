@@ -45,7 +45,8 @@ namespace FestaInfantil
         {
             controlador.AdicionarItensTema();
         }
-        private void btnVisualizarItens_Click(object sender, EventArgs e) {
+        private void btnVisualizarItens_Click(object sender, EventArgs e)
+        {
             controlador.VisualizarItensTema();
         }
         private void btnExcluirItensTema_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace FestaInfantil
 
         private void temasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTema(repositorioTema,repositorioFesta);
+            controlador = new ControladorTema(repositorioTema, repositorioFesta);
             ConfigurarTelaPrincipal(controlador);
             AtualizarRodape("Visualizando Temas");
         }
@@ -119,6 +120,13 @@ namespace FestaInfantil
             lbRodape.Text = mensagem;
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            controlador.BuscarItens();
+        }
+
+       
+
         public static TelaPrincipal Instancia
         {
             get
@@ -128,6 +136,11 @@ namespace FestaInfantil
 
                 return telaPrincipal;
             }
+        }
+        public ToolStripTextBox PegarTextoDeProcura()
+        {
+            txtProcurar.Text = txtProcurar.Text.ToUpper();
+            return txtProcurar;
         }
 
     }

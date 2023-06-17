@@ -123,6 +123,15 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC3SURBVEhL7ZTdCYAwDIQ7iqM4mps4iqM4iuYDD4q0TVN9
+        7MFhMeQuP6Vp4gsW42Y8jOfD3bgaPwPhq0KMiA8jF+dMxXSjjhSjmzAQk0BtFBgRp5PwuKiKZG8E6oT9
+        hEBVJFJlC3kXIZAEPQwb0DKJ3my1q7CBduDdEO0gfJN6boiqh96uilB1mHCWEWKKKT5k8BYqEXF9h0wA
+        icxYi1dH/Ie/mLQwTULITcLvUy8wQdx7BSZypHQDwhhVkYLc8g0AAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>237, 17</value>
   </metadata>

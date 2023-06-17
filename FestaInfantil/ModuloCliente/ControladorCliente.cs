@@ -130,11 +130,25 @@ namespace FestaInfantil.ModuloCliente
 
             return tabelaCliente;
         }
+
         private void CarregarCliente()
         {
             List<Cliente> cliente = repositorioCliente.SelecionarTodos();
             tabelaCliente.AtualizarRegistros(cliente);
             TelaPrincipal.Instancia.AtualizarRodape("Visualizando Clientes");
+        }
+
+        public override void BuscarItens()
+        {
+            foreach (DataGridViewRow linha in tabelaCliente.ObterTodosClientes())
+            {
+               
+                if (TelaPrincipal.Instancia.PegarTextoDeProcura().Text.Equals(linha.Cells["nome"].Value))
+                {
+                    linha.Selected = true;
+                    break;
+                }
+            }           
         }
     }
 }

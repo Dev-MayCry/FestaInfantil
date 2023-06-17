@@ -54,5 +54,10 @@
         }
 
         public abstract UserControl ObterListagem();
+
+        public virtual void BuscarItens()
+        {
+           
+        }
     }
 }
