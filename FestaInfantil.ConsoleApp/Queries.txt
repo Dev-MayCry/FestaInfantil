@@ -1,0 +1,41 @@
+﻿--Selecionando todos os registros da tabela
+SELECT
+	[ID],
+	[NOME],
+	[TELEFONE]
+FROM
+	[TBCLIENTE]
+
+--Selecionando todos apenas um registro da tabela
+SELECT
+	[ID],
+	[NOME],
+	[TELEFONE]
+FROM
+	[TBCLIENTE]
+WHERE
+	[ID] = 6
+
+--Inserindo registros na tabela
+INSERT INTO [TBCLIENTE]
+	(
+		[NOME],
+		[TELEFONE]
+	)
+	VALUES
+	(
+		'Tiago Santini',
+		'49 9 9929 2107'
+	);
+
+--Excluindo apenas um registro da tabela
+DELETE FROM [TBCLIENTE]
+	WHERE [ID] = 4
+
+--Atualizando todos os registros da tabela
+UPDATE [TBCLIENTE]
+	SET 
+		[NOME] = 'Gabriel Rafaeli',
+		[TELEFONE] = '49 9 8888 4444'
+	WHERE
+		[ID] = 6

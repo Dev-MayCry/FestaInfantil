@@ -5,15 +5,17 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil", "FestaInfantil\FestaInfantil.csproj", "{CB0733E7-2C86-4121-9020-AB79697A4D03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestaInfantil.Dominio", "FestaInfantil.Dominio\FestaInfantil.Dominio.csproj", "{B34758C8-98E4-45C4-B864-CD8CBEF36021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil.Dominio", "FestaInfantil.Dominio\FestaInfantil.Dominio.csproj", "{B34758C8-98E4-45C4-B864-CD8CBEF36021}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestaInfantil.InfraDados.Arquivo", "FestaInfantil.InfraDados.Arquivo\FestaInfantil.InfraDados.Arquivo.csproj", "{13B09F0E-2332-4443-BD81-485EB1FED069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil.InfraDados.Arquivo", "FestaInfantil.InfraDados.Arquivo\FestaInfantil.InfraDados.Arquivo.csproj", "{13B09F0E-2332-4443-BD81-485EB1FED069}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apresentação", "Apresentação", "{6547AAD2-41F2-45B9-B554-495C54E6C5F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domínio", "Domínio", "{FC2194B7-1367-426A-ACB3-23126A8913C6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{BE4504A3-B34D-444D-B13A-9DCC1A0B90AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestaInfantil.ConsoleApp", "FestaInfantil.ConsoleApp\FestaInfantil.ConsoleApp.csproj", "{EB224489-36A4-4082-A0E3-14BA32421411}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{13B09F0E-2332-4443-BD81-485EB1FED069}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13B09F0E-2332-4443-BD81-485EB1FED069}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13B09F0E-2332-4443-BD81-485EB1FED069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB224489-36A4-4082-A0E3-14BA32421411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB224489-36A4-4082-A0E3-14BA32421411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB224489-36A4-4082-A0E3-14BA32421411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB224489-36A4-4082-A0E3-14BA32421411}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{CB0733E7-2C86-4121-9020-AB79697A4D03} = {6547AAD2-41F2-45B9-B554-495C54E6C5F7}
 		{B34758C8-98E4-45C4-B864-CD8CBEF36021} = {FC2194B7-1367-426A-ACB3-23126A8913C6}
 		{13B09F0E-2332-4443-BD81-485EB1FED069} = {BE4504A3-B34D-444D-B13A-9DCC1A0B90AE}
+		{EB224489-36A4-4082-A0E3-14BA32421411} = {6547AAD2-41F2-45B9-B554-495C54E6C5F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7932021C-7D2C-4A13-AFF5-35327A8F6EB3}
