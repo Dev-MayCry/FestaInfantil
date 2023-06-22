@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domínio", "Domínio", "{FC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{BE4504A3-B34D-444D-B13A-9DCC1A0B90AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestaInfantil.ConsoleApp", "FestaInfantil.ConsoleApp\FestaInfantil.ConsoleApp.csproj", "{EB224489-36A4-4082-A0E3-14BA32421411}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FestaInfantil.ConsoleApp", "FestaInfantil.ConsoleApp\FestaInfantil.ConsoleApp.csproj", "{EB224489-36A4-4082-A0E3-14BA32421411}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestaInfantil.InfraDados.Sql", "FestaInfantil.InfraDados.Sql\FestaInfantil.InfraDados.Sql.csproj", "{50847C9D-F17E-41D0-8480-D66D36FE8F77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{EB224489-36A4-4082-A0E3-14BA32421411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB224489-36A4-4082-A0E3-14BA32421411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB224489-36A4-4082-A0E3-14BA32421411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50847C9D-F17E-41D0-8480-D66D36FE8F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50847C9D-F17E-41D0-8480-D66D36FE8F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50847C9D-F17E-41D0-8480-D66D36FE8F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50847C9D-F17E-41D0-8480-D66D36FE8F77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{B34758C8-98E4-45C4-B864-CD8CBEF36021} = {FC2194B7-1367-426A-ACB3-23126A8913C6}
 		{13B09F0E-2332-4443-BD81-485EB1FED069} = {BE4504A3-B34D-444D-B13A-9DCC1A0B90AE}
 		{EB224489-36A4-4082-A0E3-14BA32421411} = {6547AAD2-41F2-45B9-B554-495C54E6C5F7}
+		{50847C9D-F17E-41D0-8480-D66D36FE8F77} = {BE4504A3-B34D-444D-B13A-9DCC1A0B90AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7932021C-7D2C-4A13-AFF5-35327A8F6EB3}

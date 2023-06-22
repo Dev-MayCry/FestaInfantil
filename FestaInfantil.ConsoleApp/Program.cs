@@ -1,4 +1,5 @@
 ﻿using FestaInfantil.Dominio.ModuloCliente;
+using FestaInfantil.InfraDados.Sql.ModuloCliente;
 using Microsoft.Data.SqlClient;
 
 namespace FestaInfantil.ConsoleApp
@@ -7,6 +8,10 @@ namespace FestaInfantil.ConsoleApp
     {
         static void Main(string[] args)
         {
+            RepositorioClienteSql repositorioCliente = new RepositorioClienteSql();
+
+            List<Cliente> teste = repositorioCliente.SelecionarTodosOutraOpcao();
+
             //Cliente novoCliente = ObterCliente();
 
             //Inserir(novoCliente);
@@ -212,11 +217,11 @@ namespace FestaInfantil.ConsoleApp
 
         private static Cliente ObterCliente()
         {
-            Console.WriteLine( "Digite o nome: " );
+            Console.WriteLine("Digite o nome: ");
 
-            string nome = Console.ReadLine();   
+            string nome = Console.ReadLine();
 
-            Console.WriteLine( "Digite o telefone: " );
+            Console.WriteLine("Digite o telefone: ");
 
             string telefone = Console.ReadLine();
 
